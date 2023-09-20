@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Cinzel';
+    src:url('../../../font/Cinzel-Bold.otf') format('opentype');
+}
+
+.iconeENome {
+    display: flex;
+    gap: 6px;
+}
+
+.logo {
+    width: 40px;
+}
+
+.titulo {
+    font-family: Cinzel;
+    color: white;
+}
