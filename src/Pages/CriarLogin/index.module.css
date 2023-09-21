@@ -42,6 +42,7 @@
     text-align: center;
     cursor: context-menu;
     background-color: white;
+    padding: 0;
 }
 
 .criarConta {
