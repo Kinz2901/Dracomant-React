@@ -1,10 +1,10 @@
 ul {
-    display: flex;
-    list-style-type: none;
+  display: flex;
+  list-style-type: none;
 }
 
 li a {
-    color: white;
-    text-decoration: none;
-    padding: 41px 10px;
+  color: white;
+  text-decoration: none;
+  padding: 41px 10px;
 }

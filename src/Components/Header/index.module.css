@@ -1,23 +1,23 @@
 @font-face {
-    font-family: 'Cinzel';
-    src:url('../../../font/Cinzel-Bold.otf') format('opentype');
+  font-family: "Cinzel";
+  src: url("../../../font/Cinzel-Bold.otf") format("opentype");
 }
 
 :root {
-    --bg-color: rgb(37, 37, 37);
+  --bg-color: rgb(37, 37, 37);
 }
 
 * {
-    margin: 0px;
-    padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 40px;
-    background-color: var(--bg-color);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 40px;
+  background-color: var(--bg-color);
 }
