@@ -1,8 +1,11 @@
 import { BsPerson, BsEyeSlash, BsEye } from "react-icons/bs";
 import styles from "../CriarLogin/index.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Login() {
+  const [visiblePass, setVisiblePass] = useState(false);
+
   return (
     <>
       <div className={styles.main}>
@@ -26,13 +29,23 @@ export default function Login() {
               <input
                 className={styles.password}
                 id="password"
-                type="password"
+                type={visiblePass ? "text" : "password"}
                 placeholder="Senha:"
                 required
                 minlength="8"
               />
-              <BsEyeSlash className={styles.icons} />
-              <BsEye className={styles.icons} />
+
+              {visiblePass ? (
+                <BsEye
+                  onClick={() => setVisiblePass(!visiblePass)}
+                  className={styles.icons}
+                />
+              ) : (
+                <BsEyeSlash
+                  onClick={() => setVisiblePass(!visiblePass)}
+                  className={styles.icons}
+                />
+              )}
             </div>
             <span className={styles.err} id="password-error"></span>
             <button type="submit" className={styles.botao}>

@@ -67,10 +67,10 @@ export default function CriarLogin() {
                 required
               />
               {visiblePassConfirm ? (
-                <BsEye 
-                    onClick={() => setVisiblePassConfirm(!visiblePassConfirm)} 
-                    className={styles.icons}
-                    />
+                <BsEye
+                  onClick={() => setVisiblePassConfirm(!visiblePassConfirm)}
+                  className={styles.icons}
+                />
               ) : (
                 <BsEyeSlash
                   onClick={() => setVisiblePassConfirm(!visiblePassConfirm)}
