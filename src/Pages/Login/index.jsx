@@ -51,7 +51,7 @@ export default function Login() {
             <button type="submit" className={styles.botao}>
               CRIAR CONTA
             </button>
-            <p>
+            <p className={styles.possuiConta}>
               Não possui uma conta?{" "}
               <Link
                 to="/criarlogin"

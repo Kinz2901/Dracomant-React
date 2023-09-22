@@ -82,7 +82,7 @@ export default function CriarLogin() {
             <button type="submit" className={styles.botao}>
               CRIAR CONTA
             </button>
-            <p>
+            <p className={styles.possuiConta}>
               Já possui uma conta?
               <Link to="/login" className={styles.cliqueAqui}>
                 Clique aqui

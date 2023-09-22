@@ -18,8 +18,6 @@
   color: var(--bg-color);
   text-align: center;
   cursor: context-menu;
-  background-color: white;
-
 }
 
 .criarConta {
@@ -55,22 +53,6 @@
   cursor: pointer;
 }
 
-.oculto {
-  cursor: pointer;
-}
-
-.aparente {
-  cursor: pointer;
-}
-
-#senhaVisivel {
-  display: none;
-}
-
-#confirmSenhaVisivel {
-  display: none;
-}
-
 .botao {
   background-color: var(--bg-color);
   color: white;
@@ -90,6 +72,10 @@
   color: #f64348;
   font-size: 0.75rem;
   margin: 0.25rem;
+}
+
+.possuiConta {
+  color: var(--bg-color);
 }
 
 .cliqueAqui {
