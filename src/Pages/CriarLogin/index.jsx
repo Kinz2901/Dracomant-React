@@ -8,6 +8,11 @@ export default function CriarLogin() {
   const [visiblePass, setVisiblePass] = useState(false);
   const [visiblePassConfirm, setVisiblePassConfirm] = useState(false);
 
+  const [ name, setName ] = useState("")
+  const [ email, setEmail ] = useState("")
+  const [ passwords, setPassword ] = useState("")
+  const [ passwordsConfirm, setPasswordConfirm ] = useState("")
+
   return (
     <>
       <div className={styles.main}>
@@ -17,6 +22,8 @@ export default function CriarLogin() {
           <form className={styles.form}>
             <div className={styles.blocos_input} id="bloco-nome">
               <input
+                onChange={(ev) => setName(ev.target)}
+                value={name}
                 className={styles.nome}
                 id="name"
                 type="text"
@@ -79,7 +86,7 @@ export default function CriarLogin() {
               )}
             </div>
             <span className={styles.err} id="passwordConfirm-error"></span>
-            <button type="submit" className={styles.botao}>
+            <button className={styles.botao}>
               CRIAR CONTA
             </button>
             <p className={styles.possuiConta}>
