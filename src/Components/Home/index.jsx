@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./index.module.css";
 import Template from "./Templates";
 
@@ -22,12 +23,12 @@ export default function Home() {
               expedita a molestias inventore dolorum, illo eos modi, tempora,
               dolore excepturi. Culpa, dolore.
             </p>
-            <button className={styles.botaoAgendamento}>
+            <Link to={"/atendimento"} className={styles.botaoAgendamento}>
               <span>Começe o atendimento</span>
-            </button>
+            </Link>
           </div>
         </div>
-        <h2>Dracomant's Templates</h2>
+        <h2 className={styles.dracTem}>Dracomant's Templates</h2>
         <div className={styles.divTemplates}>
           <Template />
         </div>

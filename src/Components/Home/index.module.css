@@ -5,10 +5,8 @@ main {
 
 .fundoImg {
   width: 100%;
-  background-image: url(../../img/fundo-programando.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background: url(../../img/fundo-programando.jpg) no-repeat 
+  center/cover;
   display: flex;
   flex-direction: column;
 }
@@ -22,31 +20,29 @@ main {
 
 .divAtendimento h3 {
   font-size: 3em;
-  background-color: transparent;
 }
 
 .divAtendimento h4 {
   font-size: 1.5em;
   margin: 30px 0px;
-  background-color: transparent;
 }
 
 .divAtendimento p {
   font-size: 1.2em;
   padding-bottom: 30px;
-  background-color: transparent;
 }
 
 .botaoAgendamento {
   margin: auto;
   padding: 14px;
   font-size: 18px;
-  color: var(--bg-color);
   border: 2px solid var(--bg-color);
   letter-spacing: 2px;
   position: relative;
   transition: all 0.35s;
   background-color: transparent;
+  text-decoration: none;
+  color: var(--bg-color);
 }
 
 .botaoAgendamento span {
@@ -61,7 +57,7 @@ main {
   left: 0;
   width: 0;
   height: 100%;
-  background: var(--bg-color);
+  background-color: var(--bg-color);
   transition: all 0.35s;
 }
 
@@ -74,12 +70,10 @@ main {
   width: 100%;
 }
 
-h2 {
+.dracTem {
   text-align: center;
   font-size: 2.6em;
   padding: 54px 0px 14px 0px;
-  background-color: transparent;
-  background-color: var(--bg-color);
 }
 
 .divTemplates {
@@ -87,5 +81,4 @@ h2 {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   padding: 40px 80px;
-  background-color: var(--bg-color);
 }

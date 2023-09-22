@@ -6,6 +6,7 @@ import Ajuda from "./Pages/Ajuda";
 import RootLayout from "./Components/Layout/RootLayout";
 import Login from "./Pages/Login";
 import CriarLogin from "./Pages/CriarLogin";
+import Atendimento from "./Pages/Atendimento";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/criarlogin",
     element: <CriarLogin />,
+  },
+  {
+    path: "/atendimento",
+    element: <Atendimento />,
   },
 ]);
 
