@@ -39,11 +39,16 @@
   border: 1px solid var(--bg-color);
 }
 
+
 .blocos_input input {
   padding: 12px;
   width: 100%;
   border: none;
   outline: none;
+}
+
+.errInput {
+  border: 1px solid #f64348;
 }
 
 .icons {

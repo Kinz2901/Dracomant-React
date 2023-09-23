@@ -40,9 +40,13 @@ export default function CriarLogin() {
         if (!password.match(/[0-9]/)) {
           setErrSenha("Sua senha deve conter números.")
         }
+        if (!password.match(/^\S+$/)) {
+          setErrSenha("Sua senha não deve conter espaços vazios.")
+        }
         if (passwordConfirm !== password) {
           setErrSenhaConfirm("As senhas não se coincidem.")
         }
+
   }   
 
   return (
@@ -52,7 +56,7 @@ export default function CriarLogin() {
           <h2 className={styles.titulo}>DRACOMANT</h2>
           <p className={styles.criarConta}>CRIE UMA CONTA</p>
           <form onSubmit={validate} className={styles.form}>
-            <div className={styles.blocos_input} id="bloco-nome">
+            <div className={`${styles.blocos_input}`} id="bloco-nome">
               <input
                 onChange={(ev) => setName(ev.target.value)}
                 className={styles.nome}
@@ -63,8 +67,8 @@ export default function CriarLogin() {
               />
               <BsPerson className={styles.icons} />
             </div>
-            <span className={styles.err} id="name-error"></span>
-            <div className={styles.blocos_input} id="bloco-email">
+            <span className={styles.err}></span>
+            <div className={`${styles.blocos_input} ${errEmail === "" ? null : styles.errInput}`}  >
               <input
                 onChange={(ev) => setEmail(ev.target.value)}
                 className={styles.email}
@@ -75,8 +79,8 @@ export default function CriarLogin() {
               />
               <AiOutlineMail className={styles.icons} />
             </div>
-            <span className={styles.err} id="email-error">{errEmail}</span> 
-            <div className={styles.blocos_input} id="bloco-password">
+            <span className={styles.err}>{errEmail}</span> 
+            <div className={`${styles.blocos_input} ${errPassword === "" ? null : styles.errInput}`} id="bloco-password">
               <input
                 onChange={(ev) => setPassword(ev.target.value)}
                 className={styles.password}
@@ -98,7 +102,7 @@ export default function CriarLogin() {
               )}
             </div>
             <span className={styles.err}>{errPassword}</span>
-            <div className={styles.blocos_input} id="bloco-passwordConfirm">
+            <div className={`${styles.blocos_input} ${errPasswordConfirm === "" ? null : styles.errInput}`}>
               <input
                 onChange={(ev) => setPasswordConfirm(ev.target.value)}
                 className={styles.passwordConfirm}
