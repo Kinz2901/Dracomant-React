@@ -19,7 +19,7 @@ export default function CriarLogin() {
 
 
   
-  const validateEmail = (ev) => {
+  const validate = (ev) => {
     ev.preventDefault()
       setErrEmail("")
       setErrSenha("")
@@ -51,7 +51,7 @@ export default function CriarLogin() {
         <div className={styles.bloco}>
           <h2 className={styles.titulo}>DRACOMANT</h2>
           <p className={styles.criarConta}>CRIE UMA CONTA</p>
-          <form onSubmit={validateEmail} className={styles.form}>
+          <form onSubmit={validate} className={styles.form}>
             <div className={styles.blocos_input} id="bloco-nome">
               <input
                 onChange={(ev) => setName(ev.target.value)}
