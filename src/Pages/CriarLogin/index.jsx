@@ -14,8 +14,8 @@ export default function CriarLogin() {
   const [ passwordConfirm, setPasswordConfirm ] = useState("")
 
   const [ errEmail,  setErrEmail ] = useState("")
-  const [ errPassword,  setErrSenha ] = useState(false)
-  const [ errPasswordConfirm,  setErrSenhaConfirm ] = useState(false)
+  const [ errPassword,  setErrSenha ] = useState("")
+  const [ errPasswordConfirm,  setErrSenhaConfirm ] = useState("")
 
 
   
@@ -49,6 +49,8 @@ export default function CriarLogin() {
 
   }   
 
+  console.log(errPassword)
+
   return (
     <>
       <div className={styles.main}>
@@ -56,7 +58,7 @@ export default function CriarLogin() {
           <h2 className={styles.titulo}>DRACOMANT</h2>
           <p className={styles.criarConta}>CRIE UMA CONTA</p>
           <form onSubmit={validate} className={styles.form}>
-            <div className={`${styles.blocos_input}`} id="bloco-nome">
+            <div className={`${styles.blocos_input}`} >
               <input
                 onChange={(ev) => setName(ev.target.value)}
                 className={styles.nome}
@@ -80,7 +82,7 @@ export default function CriarLogin() {
               <AiOutlineMail className={styles.icons} />
             </div>
             <span className={styles.err}>{errEmail}</span> 
-            <div className={`${styles.blocos_input} ${errPassword === "" ? null : styles.errInput}`} id="bloco-password">
+            <div className={`${styles.blocos_input} ${errPassword === "" ? null : styles.errInput}`}>
               <input
                 onChange={(ev) => setPassword(ev.target.value)}
                 className={styles.password}
