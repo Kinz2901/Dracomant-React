@@ -120,7 +120,7 @@ export default function CriarLogin() {
               )}
             </div>
             <span className={styles.err}>{errPasswordConfirm}</span>
-            <button  onClick={() => validateEmail} className={styles.botao}>
+            <button className={styles.botao}>
               CRIAR CONTA
             </button>
             <p className={styles.possuiConta}>
