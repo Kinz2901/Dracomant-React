@@ -28,11 +28,11 @@ export default function CriarLogin() {
 
   const passwordValidation = (ev) => {
     setPassword(ev)
-    if (ev.length < 8 || 
-      ev.match(/[a-z]/) || 
-      ev.match(/[A-Z]/) || 
-      ev.match(/[0-9]/) ||
-      ev.match(/[^a-zA-Z0-9\s]/) ||
+    if (ev.length >= 8  && 
+      ev.match(/[a-z]/) && 
+      ev.match(/[A-Z]/) &&
+      ev.match(/[0-9]/) &&
+      !ev.match(/[^a-zA-Z0-9\s]/) &&
       ev.match(/^\S+$/)  
   ){
       setValidPassword(true);
@@ -138,7 +138,17 @@ export default function CriarLogin() {
                 />
               )}
             </div>
-            <span className={styles.err}></span>
+            <span  className={`${
+                password.length == 0
+                  ? null
+                  : validPassword
+                  ? styles.sucess
+                  : styles.err
+              }`}>{password.length == 0
+                ? null
+                : validPassword
+                ? "Senhas válida"
+                : "Senha inválida"}</span>
             <div
               className={`${styles.blocos_input} ${
                 passwordConfirm.length == 0
