@@ -14,7 +14,7 @@ export default function CriarLogin() {
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const [validEmail, setValidEmail] = useState(false);
-  const [errPassword, setErrSenha] = useState("");
+  const [validPassword, setValidPassword] = useState(false);
   const [validPasswordConfirm, setValidPasswordConfirm] = useState(false);
 
   const emailValidation = (ev) => {
@@ -26,9 +26,24 @@ export default function CriarLogin() {
     }
   };
 
+  const passwordValidation = (ev) => {
+    setPassword(ev)
+    if (ev.length < 8 || 
+      ev.match(/[a-z]/) || 
+      ev.match(/[A-Z]/) || 
+      ev.match(/[0-9]/) ||
+      ev.match(/[^a-zA-Z0-9\s]/) ||
+      ev.match(/^\S+$/)  
+  ){
+      setValidPassword(true);
+    } else {
+      setValidPassword(false);
+    }
+  };
+
   const validatePasswordConfirm = (ev) => {
     setPasswordConfirm(ev)
-    if (passwordConfirm == password) {
+    if (ev == password) {
       setValidPasswordConfirm(true);
     } else {
       setValidPasswordConfirm(false);
@@ -95,11 +110,16 @@ export default function CriarLogin() {
             </span>
             <div
               className={`${styles.blocos_input} ${
-                errPassword === "" ? null : styles.errInput
+                password.length == 0
+                  ? null
+                  : validPassword
+                  ? styles.sucessInput
+                  : styles.errInput
               }`}
             >
               <input
-                onChange={(ev) => setPassword(ev.target.value)}
+                onChange={(ev) => passwordValidation(ev.target.value)}
+                value={password}
                 className={styles.password}
                 id="password"
                 type={visiblePass ? "text" : "password"}
@@ -118,7 +138,7 @@ export default function CriarLogin() {
                 />
               )}
             </div>
-            <span className={styles.err}>{errPassword}</span>
+            <span className={styles.err}></span>
             <div
               className={`${styles.blocos_input} ${
                 passwordConfirm.length == 0
@@ -149,7 +169,17 @@ export default function CriarLogin() {
                 />
               )}
             </div>
-            <span className={styles.err}>{}</span>
+            <span className={`${
+                passwordConfirm.length == 0
+                  ? null
+                  : validPasswordConfirm
+                  ? styles.sucess
+                  : styles.err
+              }`}>{passwordConfirm.length == 0
+                ? null
+                : validPasswordConfirm
+                ? "Senhas compatíveis"
+                : "As senhas não se coinsidem"}</span>
             <button className={styles.botao}>CRIAR CONTA</button>
             <p className={styles.possuiConta}>
               Já possui uma conta?
