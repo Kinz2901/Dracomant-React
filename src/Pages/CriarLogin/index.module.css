@@ -49,6 +49,10 @@
   outline: none;
 }
 
+.span {
+  margin: 4px 0px;
+}
+
 .sucessInput {
   border: 1px solid green;
 }

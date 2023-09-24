@@ -18,7 +18,7 @@ export default function CriarLogin() {
   const [validPasswordConfirm, setValidPasswordConfirm] = useState(false);
 
   const emailValidation = (ev) => {
-    setEmail(ev)
+    setEmail(ev);
     if (ev.match(/\w{2,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}/)) {
       setValidEmail(true);
     } else {
@@ -27,14 +27,15 @@ export default function CriarLogin() {
   };
 
   const passwordValidation = (ev) => {
-    setPassword(ev)
-    if (ev.length >= 8  && 
-      ev.match(/[a-z]/) && 
+    setPassword(ev);
+    if (
+      ev.length >= 8 &&
+      ev.match(/[a-z]/) &&
       ev.match(/[A-Z]/) &&
       ev.match(/[0-9]/) &&
       !ev.match(/[^a-zA-Z0-9\s]/) &&
-      ev.match(/^\S+$/)  
-  ){
+      ev.match(/^\S+$/)
+    ) {
       setValidPassword(true);
     } else {
       setValidPassword(false);
@@ -42,7 +43,7 @@ export default function CriarLogin() {
   };
 
   const validatePasswordConfirm = (ev) => {
-    setPasswordConfirm(ev)
+    setPasswordConfirm(ev);
     if (ev == password) {
       setValidPasswordConfirm(true);
     } else {
@@ -94,7 +95,7 @@ export default function CriarLogin() {
               <AiOutlineMail className={styles.icons} />
             </div>
             <span
-              className={`${
+              className={`${styles.span} ${
                 email.length == 0
                   ? null
                   : validEmail
@@ -138,17 +139,21 @@ export default function CriarLogin() {
                 />
               )}
             </div>
-            <span  className={`${
+            <span
+              className={`${styles.span} ${
                 password.length == 0
                   ? null
                   : validPassword
                   ? styles.sucess
                   : styles.err
-              }`}>{password.length == 0
+              }`}
+            >
+              {password.length == 0
                 ? null
                 : validPassword
                 ? "Senhas válida"
-                : "Senha inválida"}</span>
+                : "Senha inválida"}
+            </span>
             <div
               className={`${styles.blocos_input} ${
                 passwordConfirm.length == 0
@@ -179,17 +184,21 @@ export default function CriarLogin() {
                 />
               )}
             </div>
-            <span className={`${
+            <span
+              className={`${styles.span} ${
                 passwordConfirm.length == 0
                   ? null
                   : validPasswordConfirm
                   ? styles.sucess
                   : styles.err
-              }`}>{passwordConfirm.length == 0
+              }`}
+            >
+              {passwordConfirm.length == 0
                 ? null
                 : validPasswordConfirm
                 ? "Senhas compatíveis"
-                : "As senhas não se coinsidem"}</span>
+                : "As senhas não se coinsidem"}
+            </span>
             <button className={styles.botao}>CRIAR CONTA</button>
             <p className={styles.possuiConta}>
               Já possui uma conta?
