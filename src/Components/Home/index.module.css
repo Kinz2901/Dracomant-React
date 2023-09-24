@@ -5,8 +5,7 @@ main {
 
 .fundoImg {
   width: 100%;
-  background: url(../../img/fundo-programando.jpg) no-repeat 
-  center/cover;
+  background: url(../../img/fundo-programando.jpg) no-repeat center/cover;
   display: flex;
   flex-direction: column;
 }

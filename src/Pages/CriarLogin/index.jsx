@@ -8,48 +8,36 @@ export default function CriarLogin() {
   const [visiblePass, setVisiblePass] = useState(false);
   const [visiblePassConfirm, setVisiblePassConfirm] = useState(false);
 
-  const [ name, setName ] = useState("")
-  const [ email, setEmail ] = useState("")
-  const [ password, setPassword ] = useState("")
-  const [ passwordConfirm, setPasswordConfirm ] = useState("")
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
-  const [ errEmail,  setErrEmail ] = useState("")
-  const [ errPassword,  setErrSenha ] = useState("")
-  const [ errPasswordConfirm,  setErrSenhaConfirm ] = useState("")
+  const [validEmail, setValidEmail] = useState(false);
+  const [errPassword, setErrSenha] = useState("");
+  const [validPasswordConfirm, setValidPasswordConfirm] = useState(false);
 
+  const emailValidation = (ev) => {
+    setEmail(ev)
+    if (ev.match(/\w{2,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}/)) {
+      setValidEmail(true);
+    } else {
+      setValidEmail(false);
+    }
+  };
 
-  
+  const validatePasswordConfirm = (ev) => {
+    setPasswordConfirm(ev)
+    if (passwordConfirm == password) {
+      setValidPasswordConfirm(true);
+    } else {
+      setValidPasswordConfirm(false);
+    }
+  };
+
   const validate = (ev) => {
-    ev.preventDefault()
-      setErrEmail("")
-      setErrSenha("")
-      setErrSenhaConfirm("")
-
-        if (!email.match(/\w{2,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}/)) {
-          setErrEmail("E-mail inválido.")
-        } 
-        if (password.length < 8 ) {
-          setErrSenha("O tamanho da sua senha deve ser de no minimo 8 digitos.")
-        }
-        if (!password.match(/[a-z]/)) {
-          setErrSenha("Sua senha deve conter letras minúsculas.")
-        }
-        if (!password.match(/[A-Z]/)) {
-          setErrSenha("Sua senha deve conter letras maiúsculas.")
-        }
-        if (!password.match(/[0-9]/)) {
-          setErrSenha("Sua senha deve conter números.")
-        }
-        if (!password.match(/^\S+$/)) {
-          setErrSenha("Sua senha não deve conter espaços vazios.")
-        }
-        if (passwordConfirm !== password) {
-          setErrSenhaConfirm("As senhas não se coincidem.")
-        }
-
-  }   
-
-  console.log(errPassword)
+    ev.preventDefault();
+  };
 
   return (
     <>
@@ -58,7 +46,7 @@ export default function CriarLogin() {
           <h2 className={styles.titulo}>DRACOMANT</h2>
           <p className={styles.criarConta}>CRIE UMA CONTA</p>
           <form onSubmit={validate} className={styles.form}>
-            <div className={`${styles.blocos_input}`} >
+            <div className={`${styles.blocos_input}`}>
               <input
                 onChange={(ev) => setName(ev.target.value)}
                 className={styles.nome}
@@ -70,9 +58,18 @@ export default function CriarLogin() {
               <BsPerson className={styles.icons} />
             </div>
             <span className={styles.err}></span>
-            <div className={`${styles.blocos_input} ${errEmail === "" ? null : styles.errInput}`}  >
+            <div
+              className={`${styles.blocos_input} ${
+                email.length == 0
+                  ? null
+                  : validEmail
+                  ? styles.sucessInput
+                  : styles.errInput
+              }`}
+            >
               <input
-                onChange={(ev) => setEmail(ev.target.value)}
+                onChange={(ev) => emailValidation(ev.target.value)}
+                value={email}
                 className={styles.email}
                 id="email"
                 type="email"
@@ -81,8 +78,26 @@ export default function CriarLogin() {
               />
               <AiOutlineMail className={styles.icons} />
             </div>
-            <span className={styles.err}>{errEmail}</span> 
-            <div className={`${styles.blocos_input} ${errPassword === "" ? null : styles.errInput}`}>
+            <span
+              className={`${
+                email.length == 0
+                  ? null
+                  : validEmail
+                  ? styles.sucess
+                  : styles.err
+              }`}
+            >
+              {email.length == 0
+                ? null
+                : validEmail
+                ? "E-mail válido"
+                : "E-mail inválido"}
+            </span>
+            <div
+              className={`${styles.blocos_input} ${
+                errPassword === "" ? null : styles.errInput
+              }`}
+            >
               <input
                 onChange={(ev) => setPassword(ev.target.value)}
                 className={styles.password}
@@ -104,9 +119,18 @@ export default function CriarLogin() {
               )}
             </div>
             <span className={styles.err}>{errPassword}</span>
-            <div className={`${styles.blocos_input} ${errPasswordConfirm === "" ? null : styles.errInput}`}>
+            <div
+              className={`${styles.blocos_input} ${
+                passwordConfirm.length == 0
+                  ? null
+                  : validPasswordConfirm
+                  ? styles.sucessInput
+                  : styles.errInput
+              }`}
+            >
               <input
-                onChange={(ev) => setPasswordConfirm(ev.target.value)}
+                onChange={(ev) => validatePasswordConfirm(ev.target.value)}
+                value={passwordConfirm}
                 className={styles.passwordConfirm}
                 id="passwordConfirm"
                 type={visiblePassConfirm ? "text" : "password"}
@@ -125,10 +149,8 @@ export default function CriarLogin() {
                 />
               )}
             </div>
-            <span className={styles.err}>{errPasswordConfirm}</span>
-            <button className={styles.botao}>
-              CRIAR CONTA
-            </button>
+            <span className={styles.err}>{}</span>
+            <button className={styles.botao}>CRIAR CONTA</button>
             <p className={styles.possuiConta}>
               Já possui uma conta?
               <Link to="/login" className={styles.cliqueAqui}>

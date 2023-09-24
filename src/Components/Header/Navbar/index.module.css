@@ -3,7 +3,7 @@ ul {
   list-style-type: none;
 }
 
-ul a:after{
+ul a:after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -12,7 +12,9 @@ ul a:after{
   border-radius: 50px;
   position: absolute;
   background-color: #fff;
-  transition: 0.3s ease 0s, left 0.3s ease 0s;
+  transition:
+    0.3s ease 0s,
+    left 0.3s ease 0s;
   width: 0;
 }
 
