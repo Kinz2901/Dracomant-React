@@ -2,17 +2,12 @@ import { BsPerson, BsEyeSlash, BsEye } from "react-icons/bs";
 import styles from "../CriarLogin/index.module.css";
 import styles2 from "./index.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
+import useLogin from "../../hooks/useLogin";
 
 export default function Login() {
-  const [visiblePass, setVisiblePass] = useState(false);
-
-  const [ name, setName ] = useState()
-  const [ email, setEmail ] = useState()
-  const [ picture, setPicture ] = useState()
-  const [ logger, setLogger ] = useState(false)
+  const { visiblePass, setVisiblePass, name, setName, email, setEmail, picture, setPicture , logger, setLogger } = useLogin();
 
   return (
     <>
@@ -74,15 +69,6 @@ export default function Login() {
                       />
                     </GoogleOAuthProvider>
             </div>
-      {
-        picture ? 
-        <div>
-          <h2>Bem vindo {name}</h2>
-          <p>{email}</p>
-            <img src={picture} alt="" />
-        </div> :
-        null
-      }
             <Link to={logger ? "/" : "/login"} className={`${styles.botao} ${styles2.botao}`}>
               Fazer Login
             </Link>
