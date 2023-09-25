@@ -1,4 +1,5 @@
-import { BsPerson, BsEyeSlash, BsEye } from "react-icons/bs";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
+import { AiOutlineMail } from "react-icons/ai";
 import styles from "../CriarLogin/index.module.css";
 import styles2 from "./index.module.css";
 import { Link } from "react-router-dom";
@@ -7,7 +8,7 @@ import jwt_decode from "jwt-decode";
 import useLogin from "../../hooks/useLogin";
 
 export default function Login() {
-  const { visiblePass, setVisiblePass, name, setName, email, setEmail, user, emailValidationLogin,  password, passwordValidationLogin, picture, setPicture , logger, setLogger } = useLogin();
+  const { visiblePass, setVisiblePass, name, setName, email, setEmail, emailValidationLogin,  password, passwordValidationLogin, picture, setPicture , logger, setLogger } = useLogin();
 
   return (
     <>
@@ -26,7 +27,7 @@ export default function Login() {
                 required
                 autocomplete="name"
               />
-              <BsPerson className={styles.icons} />
+              <AiOutlineMail className={styles.icons} />
             </div>
             <span className={styles.err} id="name-error"></span>
             <div className={styles.blocos_input} id="bloco-password">
