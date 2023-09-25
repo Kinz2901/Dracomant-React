@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 import useLogin from "../../hooks/useLogin";
 
 export default function Login() {
-  const { visiblePass, setVisiblePass, name, setName, email, setEmail, picture, setPicture , logger, setLogger } = useLogin();
+  const { visiblePass, setVisiblePass, name, setName, email, setEmail, user, emailValidationLogin,  password, passwordValidationLogin, picture, setPicture , logger, setLogger } = useLogin();
 
   return (
     <>
@@ -18,10 +18,11 @@ export default function Login() {
           <form className={styles.form}>
             <div className={styles.blocos_input} id="bloco-nome">
               <input
+                onChange={(ev) => emailValidationLogin(ev.target.value)}
                 className={styles.nome}
                 id="name"
                 type="text"
-                placeholder="Nome ou e-mail do usuário"
+                placeholder="E-mail do usuário"
                 required
                 autocomplete="name"
               />
@@ -30,6 +31,7 @@ export default function Login() {
             <span className={styles.err} id="name-error"></span>
             <div className={styles.blocos_input} id="bloco-password">
               <input
+                onChange={(ev) => passwordValidationLogin(ev.target.value)}
                 className={styles.password}
                 id="password"
                 type={visiblePass ? "text" : "password"}
