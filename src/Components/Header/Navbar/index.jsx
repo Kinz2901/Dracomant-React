@@ -9,9 +9,6 @@ export default function Navbar() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#templates">Templates</a>
-        </li>
-        <li>
           <Link to="contato">Contato</Link>
         </li>
         <li>

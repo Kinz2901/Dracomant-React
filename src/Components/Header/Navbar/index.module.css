@@ -12,9 +12,7 @@ ul a:after {
   border-radius: 50px;
   position: absolute;
   background-color: #fff;
-  transition:
-    0.3s ease 0s,
-    left 0.3s ease 0s;
+  transition: 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
 

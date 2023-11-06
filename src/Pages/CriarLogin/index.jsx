@@ -2,17 +2,27 @@ import styles from "./index.module.css";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsPerson, BsEyeSlash, BsEye } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import useValidate from '../../hooks/useValidate'
+import useValidate from "../../hooks/useValidate";
 
 export default function CriarLogin() {
-
-  const { visiblePass, setVisiblePass,
-        visiblePassConfirm, setVisiblePassConfirm,
-        name, setName, email, password,
-        passwordConfirm, validEmail,
-        validPassword, validPasswordConfirm,
-        emailValidation ,passwordValidation,
-        validatePasswordConfirm ,validate } = useValidate()
+  const {
+    visiblePass,
+    setVisiblePass,
+    visiblePassConfirm,
+    setVisiblePassConfirm,
+    name,
+    setName,
+    email,
+    password,
+    passwordConfirm,
+    validEmail,
+    validPassword,
+    validPasswordConfirm,
+    emailValidation,
+    passwordValidation,
+    validatePasswordConfirm,
+    validate,
+  } = useValidate();
 
   return (
     <>

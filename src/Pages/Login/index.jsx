@@ -3,12 +3,26 @@ import { AiOutlineMail } from "react-icons/ai";
 import styles from "../CriarLogin/index.module.css";
 import styles2 from "./index.module.css";
 import { Link } from "react-router-dom";
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import useLogin from "../../hooks/useLogin";
 
 export default function Login() {
-  const { visiblePass, setVisiblePass, name, setName, email, setEmail, emailValidationLogin,  password, passwordValidationLogin, picture, setPicture , logger, setLogger } = useLogin();
+  const {
+    visiblePass,
+    setVisiblePass,
+    name,
+    setName,
+    email,
+    setEmail,
+    emailValidationLogin,
+    password,
+    passwordValidationLogin,
+    picture,
+    setPicture,
+    logger,
+    setLogger,
+  } = useLogin();
 
   return (
     <>
@@ -55,24 +69,26 @@ export default function Login() {
             </div>
             <span className={styles.err} id="password-error"></span>
             <div className={styles2.googleAut}>
-              <GoogleOAuthProvider 
-                    clientId="261842505322-v7a5fkv11k9bhmr1k1erst3rvfssia52.apps.googleusercontent.com">
-                      <GoogleLogin
-                      onSuccess={credentialResponse => {
-                        var decoded = jwt_decode(credentialResponse.credential);
-                        console.log(decoded);
-              setName(decoded.name)
-              setEmail(decoded.email)
-              setPicture(decoded.picture)
-              setLogger(true)
-                      }}
-                      onError={() => {
-              console.log('Login Failed');
-                      }}
-                      />
-                    </GoogleOAuthProvider>
+              <GoogleOAuthProvider clientId="261842505322-v7a5fkv11k9bhmr1k1erst3rvfssia52.apps.googleusercontent.com">
+                <GoogleLogin
+                  onSuccess={(credentialResponse) => {
+                    var decoded = jwt_decode(credentialResponse.credential);
+                    console.log(decoded);
+                    setName(decoded.name);
+                    setEmail(decoded.email);
+                    setPicture(decoded.picture);
+                    setLogger(true);
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
+              </GoogleOAuthProvider>
             </div>
-            <Link to={logger ? "/" : "/login"} className={`${styles.botao} ${styles2.botao}`}>
+            <Link
+              to={logger ? "/" : "/login"}
+              className={`${styles.botao} ${styles2.botao}`}
+            >
               Fazer Login
             </Link>
             <p className={styles.possuiConta}>

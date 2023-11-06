@@ -3,6 +3,14 @@ import styles from "./index.module.css";
 import Template from "./Templates";
 
 export default function Home() {
+  const scrollSuave = (ev) => {
+    ev.preventDefault();
+    const href = ev.currentTarget.getAttribute("href");
+    const section = document.querySelector(href);
+    section.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <main className={`${styles.blocos} ${styles.main}`}>
@@ -17,20 +25,27 @@ export default function Home() {
               Dracomant é uma empresa de profissionais em desenvolvimento de
               sites!
             </h4>
-            <p>
-              lo Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-              cum molestias? Sit dolores reprehenderit dicta architecto qui
-              expedita a molestias inventore dolorum, illo eos modi, tempora,
-              dolore excepturi. Culpa, dolore.
+            <p className={styles.comentario}> 
+              Aqui entregamos seus sites com a melhor qualidade e menor tempo de
+              entrega.
             </p>
-            <Link to={"/atendimento"} className={styles.botaoAgendamento}>
-              <span>Começe o atendimento</span>
-            </Link>
+            <div className={styles.botoes}>
+              <Link to={"/atendimento"} className={styles.botaoAgendamento}>
+                <span>Começe o atendimento</span>
+              </Link>
+              <a onClick={scrollSuave} href="#templates" className={styles.botaoAgendamento}>
+                <span>
+                  Ver Templates
+                </span>
+              </a>
+            </div>
           </div>
         </div>
-        <h2 className={styles.dracTem} id="templates">Dracomant's Templates</h2>
+        <h2 className={styles.dracTem} id="templates">
+          Dracomant's Templates
+        </h2>
         <div className={styles.divTemplates}>
-          <Template/>
+          <Template />
         </div>
       </main>
     </>
