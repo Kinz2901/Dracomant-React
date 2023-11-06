@@ -28,9 +28,9 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <h2 className={styles.dracTem}>Dracomant's Templates</h2>
+        <h2 className={styles.dracTem} id="templates">Dracomant's Templates</h2>
         <div className={styles.divTemplates}>
-          <Template />
+          <Template/>
         </div>
       </main>
     </>
