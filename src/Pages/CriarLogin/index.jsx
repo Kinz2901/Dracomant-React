@@ -23,7 +23,7 @@ export default function CriarLogin() {
 
   let err = null
  
-  if (password.value !== passwordConfirm.value) {
+  if (passwordConfirm.value.length !== 0 && passwordConfirm.value !== password.value ) {
     err = 'As senhas não coincidem'
   }
 
@@ -98,7 +98,7 @@ export default function CriarLogin() {
             {password.error && <p>{password.error}</p>}
           </span>
           <div className={`${styles.blocos_input} ${
-              passwordConfirm.error && styles.errInput
+              passwordConfirm.error && styles.errInput || err && styles.errInput
             }`}>
             <input
               className={styles.passwordConfirm}
