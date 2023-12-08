@@ -7,7 +7,10 @@
   background-color: cadetblue;
 }
 
-.bloco {
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   width: 400px;
   padding: 60px;
   background-color: white;
@@ -24,12 +27,6 @@
   color: var(--bg-color);
   font: 1.2em Arial, Helvetica, sans-serif;
   margin: 40px 0px 20px 0px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
 
 .blocos_input {

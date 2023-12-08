@@ -2,181 +2,138 @@ import styles from "./index.module.css";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsPerson, BsEyeSlash, BsEye } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import useValidate from "../../hooks/useValidate";
+import useValidate from "../../hooks/useForm";
+import useVisiblePass from "../../hooks/useVisiblePass";
+import useForm from "../../hooks/useForm";
 
 export default function CriarLogin() {
+  const name = useForm();
+  const email = useForm("email");
+  const password = useForm("password");
+  const passwordConfirm = useForm();
+
   const {
     visiblePass,
     setVisiblePass,
     visiblePassConfirm,
     setVisiblePassConfirm,
-    name,
-    setName,
-    email,
-    password,
-    passwordConfirm,
-    validEmail,
-    validPassword,
-    validPasswordConfirm,
-    emailValidation,
-    passwordValidation,
-    validatePasswordConfirm,
-    validate,
-  } = useValidate();
+  } = useVisiblePass();
+
+  console.log(name.value, email.value, password.value, passwordConfirm.value)
+
+  let err = null
+ 
+  if (password.value !== passwordConfirm.value) {
+    err = 'As senhas não coincidem'
+  }
+
 
   return (
     <>
       <div className={styles.main}>
-        <div className={styles.bloco}>
+        <form onSubmit={(ev) => ev.preventDefault()} className={styles.form}>
           <h2 className={styles.titulo}>DRACOMANT</h2>
           <p className={styles.criarConta}>CRIE UMA CONTA</p>
-          <form onSubmit={validate} className={styles.form}>
-            <div className={`${styles.blocos_input}`}>
-              <input
-                onChange={(ev) => setName(ev.target.value)}
-                className={styles.nome}
-                id="name"
-                type="text"
-                placeholder="Nome do usuário"
-                required
+          <div className={`${styles.blocos_input} ${
+              name.error && styles.errInput
+            }`}>
+            <input
+              className={styles.nome}
+              id="name"
+              type="text"
+              placeholder="Nome do usuário:"
+              onChange={name.onChange}
+              onBlur={name.onBlur}
+              value={name.value}
+            />
+            <BsPerson className={styles.icons} />
+          </div>
+          <span className={styles.err}>
+            {name.error && <p>{name.error}</p>}
+          </span>
+          <div
+            className={`${styles.blocos_input} ${
+              email.error && styles.errInput
+            }`}
+          >
+            <input
+              className={styles.email}
+              id="email"
+              type="text"
+              placeholder="Endereço de e-mail:"
+              onChange={email.onChange}
+              onBlur={email.onBlur}
+              value={email.value}
+            />
+            <AiOutlineMail className={styles.icons} />
+          </div>
+          <span className={styles.err}>
+            {email.error && <p>{email.error}</p>}
+          </span>
+          <div className={`${styles.blocos_input} ${
+              password.error && styles.errInput
+            }`}>
+            <input
+              className={styles.password}
+              id="password"
+              type={visiblePass ? "text" : "password"}
+              placeholder="Senha:"
+              onChange={password.onChange}
+              onBlur={password.onBlur}
+              value={password.value}
+            />
+            {visiblePass ? (
+              <BsEye
+                onClick={() => setVisiblePass(!visiblePass)}
+                className={styles.icons}
               />
-              <BsPerson className={styles.icons} />
-            </div>
-            <span className={styles.err}></span>
-            <div
-              className={`${styles.blocos_input} ${
-                email.length == 0
-                  ? null
-                  : validEmail
-                  ? styles.sucessInput
-                  : styles.errInput
-              }`}
-            >
-              <input
-                onChange={(ev) => emailValidation(ev.target.value)}
-                value={email}
-                className={styles.email}
-                id="email"
-                type="email"
-                placeholder="Endereço de e-mail"
-                required
+            ) : (
+              <BsEyeSlash
+                onClick={() => setVisiblePass(!visiblePass)}
+                className={styles.icons}
               />
-              <AiOutlineMail className={styles.icons} />
-            </div>
-            <span
-              className={`${styles.span} ${
-                email.length == 0
-                  ? null
-                  : validEmail
-                  ? styles.sucess
-                  : styles.err
-              }`}
-            >
-              {email.length == 0
-                ? null
-                : validEmail
-                ? "E-mail válido"
-                : "E-mail inválido"}
-            </span>
-            <div
-              className={`${styles.blocos_input} ${
-                password.length == 0
-                  ? null
-                  : validPassword
-                  ? styles.sucessInput
-                  : styles.errInput
-              }`}
-            >
-              <input
-                onChange={(ev) => passwordValidation(ev.target.value)}
-                value={password}
-                className={styles.password}
-                id="password"
-                type={visiblePass ? "text" : "password"}
-                placeholder="Senha:"
-                required
+            )}
+          </div>
+          <span className={styles.err}>
+            {password.error && <p>{password.error}</p>}
+          </span>
+          <div className={`${styles.blocos_input} ${
+              passwordConfirm.error && styles.errInput
+            }`}>
+            <input
+              className={styles.passwordConfirm}
+              id="passwordConfirm"
+              type={visiblePassConfirm ? "text" : "password"}
+              placeholder="Confirmar Senha:"
+              onChange={passwordConfirm.onChange}
+              onBlur={passwordConfirm.onBlur}
+              value={passwordConfirm.value}
+            />
+            {visiblePassConfirm ? (
+              <BsEye
+                onClick={() => setVisiblePassConfirm(!visiblePassConfirm)}
+                className={styles.icons}
               />
-              {visiblePass ? (
-                <BsEye
-                  onClick={() => setVisiblePass(!visiblePass)}
-                  className={styles.icons}
-                />
-              ) : (
-                <BsEyeSlash
-                  onClick={() => setVisiblePass(!visiblePass)}
-                  className={styles.icons}
-                />
-              )}
-            </div>
-            <span
-              className={`${styles.span} ${
-                password.length == 0
-                  ? null
-                  : validPassword
-                  ? styles.sucess
-                  : styles.err
-              }`}
-            >
-              {password.length == 0
-                ? null
-                : validPassword
-                ? "Senhas válida"
-                : "Senha inválida"}
-            </span>
-            <div
-              className={`${styles.blocos_input} ${
-                passwordConfirm.length == 0
-                  ? null
-                  : validPasswordConfirm
-                  ? styles.sucessInput
-                  : styles.errInput
-              }`}
-            >
-              <input
-                onChange={(ev) => validatePasswordConfirm(ev.target.value)}
-                value={passwordConfirm}
-                className={styles.passwordConfirm}
-                id="passwordConfirm"
-                type={visiblePassConfirm ? "text" : "password"}
-                placeholder="Confirmar Senha:"
-                required
+            ) : (
+              <BsEyeSlash
+                onClick={() => setVisiblePassConfirm(!visiblePassConfirm)}
+                className={styles.icons}
               />
-              {visiblePassConfirm ? (
-                <BsEye
-                  onClick={() => setVisiblePassConfirm(!visiblePassConfirm)}
-                  className={styles.icons}
-                />
-              ) : (
-                <BsEyeSlash
-                  onClick={() => setVisiblePassConfirm(!visiblePassConfirm)}
-                  className={styles.icons}
-                />
-              )}
-            </div>
-            <span
-              className={`${styles.span} ${
-                passwordConfirm.length == 0
-                  ? null
-                  : validPasswordConfirm
-                  ? styles.sucess
-                  : styles.err
-              }`}
-            >
-              {passwordConfirm.length == 0
-                ? null
-                : validPasswordConfirm
-                ? "Senhas compatíveis"
-                : "As senhas não se coinsidem"}
-            </span>
-            <button className={styles.botao}>CRIAR CONTA</button>
-            <p className={styles.possuiConta}>
-              Já possui uma conta?
-              <Link to="/login" className={styles.cliqueAqui}>
-                Clique aqui
-              </Link>
-            </p>
-          </form>
-        </div>
+            )}
+          </div>
+          <span className={styles.err}>
+            {passwordConfirm.error && <p>{passwordConfirm.error}
+            </p>}
+            {err}
+          </span>
+          <button className={styles.botao}>CRIAR CONTA</button>
+          <p className={styles.possuiConta}>
+            Já possui uma conta?
+            <Link to="/login" className={styles.cliqueAqui}>
+              Clique aqui
+            </Link>
+          </p>
+        </form>
       </div>
     </>
   );
