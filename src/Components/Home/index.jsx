@@ -26,8 +26,7 @@ export default function Home() {
               sites!
             </h4>
             <p className={styles.comentario}> 
-              Aqui entregamos seus sites com a melhor qualidade e menor tempo de
-              entrega.
+              Aqui entregamos seu site com a melhor qualidade e menor tempo.
             </p>
             <div className={styles.botoes}>
               <Link to={"/atendimento"} className={styles.botaoAgendamento}>

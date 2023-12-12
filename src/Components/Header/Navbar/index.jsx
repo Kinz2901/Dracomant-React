@@ -1,21 +1,21 @@
-import { Link } from "react-router-dom";
-import styles from "./index.module.css";
+import { NavLink } from "react-router-dom";
+import "./index.css";
 
 export default function Navbar() {
   return (
     <>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/" end>Home</NavLink>
         </li>
         <li>
-          <Link to="contato">Contato</Link>
+          <NavLink to="contato">Contato</NavLink>
         </li>
         <li>
-          <Link to="curiosidades">Curiosidades</Link>
+          <NavLink to="curiosidades">Curiosidades</NavLink>
         </li>
         <li>
-          <Link to="ajuda">Ajuda</Link>
+          <NavLink to="ajuda">Ajuda</NavLink>
         </li>
       </ul>
     </>

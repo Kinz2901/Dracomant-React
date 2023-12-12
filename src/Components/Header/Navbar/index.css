@@ -28,3 +28,8 @@ li a {
   position: relative;
   letter-spacing: 0.15em;
 }
+
+.active:after {
+  width: 100%;
+  left: 0;
+}
