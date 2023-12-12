@@ -1,8 +1,7 @@
 import styles from "./index.module.css";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsPerson, BsEyeSlash, BsEye } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import useValidate from "../../hooks/useForm";
+import { Link, useNavigate } from "react-router-dom";
 import useVisiblePass from "../../hooks/useVisiblePass";
 import useForm from "../../hooks/useForm";
 
@@ -12,6 +11,8 @@ export default function CriarLogin() {
   const password = useForm("password");
   const passwordConfirm = useForm();
 
+  const navigate = useNavigate()
+
   const {
     visiblePass,
     setVisiblePass,
@@ -19,7 +20,12 @@ export default function CriarLogin() {
     setVisiblePassConfirm,
   } = useVisiblePass();
 
-  console.log(name.value, email.value, password.value, passwordConfirm.value)
+  function handleClick() {
+    // FAZER VERIFIÇÃO E ADICIONAR NO BANCODE DADOS
+    navigate('/login');
+  }
+
+  // Tenho que concertar essa gambiarra ↴
 
   let err = null
  
@@ -126,7 +132,7 @@ export default function CriarLogin() {
             </p>}
             {err}
           </span>
-          <button className={styles.botao}>CRIAR CONTA</button>
+          <button onClick={handleClick} className={styles.botao}>CRIAR CONTA</button>
           <p className={styles.possuiConta}>
             Já possui uma conta?
             <Link to="/login" className={styles.cliqueAqui}>
