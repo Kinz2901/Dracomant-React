@@ -47,7 +47,7 @@ export default function CriarLogin() {
               className={styles.nome}
               id="name"
               type="text"
-              placeholder="Nome do usuário:"
+              placeholder="Nome do usuário"
               onChange={name.onChange}
               onBlur={name.onBlur}
               value={name.value}
@@ -66,7 +66,7 @@ export default function CriarLogin() {
               className={styles.email}
               id="email"
               type="text"
-              placeholder="Endereço de e-mail:"
+              placeholder="Endereço de e-mail"
               onChange={email.onChange}
               onBlur={email.onBlur}
               value={email.value}
@@ -83,7 +83,7 @@ export default function CriarLogin() {
               className={styles.password}
               id="password"
               type={visiblePass ? "text" : "password"}
-              placeholder="Senha:"
+              placeholder="Senha"
               onChange={password.onChange}
               onBlur={password.onBlur}
               value={password.value}
@@ -110,7 +110,7 @@ export default function CriarLogin() {
               className={styles.passwordConfirm}
               id="passwordConfirm"
               type={visiblePassConfirm ? "text" : "password"}
-              placeholder="Confirmar Senha:"
+              placeholder="Confirmar Senha"
               onChange={passwordConfirm.onChange}
               onBlur={passwordConfirm.onBlur}
               value={passwordConfirm.value}

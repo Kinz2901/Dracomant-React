@@ -56,7 +56,7 @@ export default function Login() {
               className={styles.password}
               id="password"
               type={visiblePass ? "text" : "password"}
-              placeholder="Senha:"
+              placeholder="Senha"
               required
               minlength="8"
             />
