@@ -29,19 +29,19 @@ const router = createBrowserRouter([
         path: "/ajuda",
         element: <Ajuda />,
       },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/criarlogin",
+        element: <CriarLogin />,
+      },
+      {
+        path: "/atendimento",
+        element: <Atendimento />,
+      },
     ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/criarlogin",
-    element: <CriarLogin />,
-  },
-  {
-    path: "/atendimento",
-    element: <Atendimento />,
   },
 ]);
 

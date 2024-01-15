@@ -4,6 +4,8 @@ import { BsPerson, BsEyeSlash, BsEye } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import useVisiblePass from "../../hooks/useVisiblePass";
 import useForm from "../../hooks/useForm";
+import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
 
 export default function CriarLogin() {
   const name = useForm();
@@ -11,7 +13,7 @@ export default function CriarLogin() {
   const password = useForm("password");
   const passwordConfirm = useForm();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     visiblePass,
@@ -22,27 +24,32 @@ export default function CriarLogin() {
 
   function handleClick() {
     // FAZER VERIFIÇÃO E ADICIONAR NO BANCODE DADOS
-    navigate('/login');
+    navigate("/login");
   }
 
   // Tenho que concertar essa gambiarra ↴
 
-  let err = null
- 
-  if (passwordConfirm.value.length !== 0 && passwordConfirm.value !== password.value ) {
-    err = 'As senhas não coincidem'
-  }
+  let err = null;
 
+  if (
+    passwordConfirm.value.length !== 0 &&
+    passwordConfirm.value !== password.value
+  ) {
+    err = "As senhas não coincidem";
+  }
 
   return (
     <>
       <div className={styles.main}>
+        <div className={styles.img}></div>
         <form onSubmit={(ev) => ev.preventDefault()} className={styles.form}>
           <h2 className={styles.titulo}>DRACOMANT</h2>
           <p className={styles.criarConta}>CRIE UMA CONTA</p>
-          <div className={`${styles.blocos_input} ${
+          <div
+            className={`${styles.blocos_input} ${
               name.error && styles.errInput
-            }`}>
+            }`}
+          >
             <input
               className={styles.nome}
               id="name"
@@ -76,9 +83,11 @@ export default function CriarLogin() {
           <span className={styles.err}>
             {email.error && <p>{email.error}</p>}
           </span>
-          <div className={`${styles.blocos_input} ${
+          <div
+            className={`${styles.blocos_input} ${
               password.error && styles.errInput
-            }`}>
+            }`}
+          >
             <input
               className={styles.password}
               id="password"
@@ -103,9 +112,12 @@ export default function CriarLogin() {
           <span className={styles.err}>
             {password.error && <p>{password.error}</p>}
           </span>
-          <div className={`${styles.blocos_input} ${
-              passwordConfirm.error && styles.errInput || err && styles.errInput
-            }`}>
+          <div
+            className={`${styles.blocos_input} ${
+              (passwordConfirm.error && styles.errInput) ||
+              (err && styles.errInput)
+            }`}
+          >
             <input
               className={styles.passwordConfirm}
               id="passwordConfirm"
@@ -128,11 +140,12 @@ export default function CriarLogin() {
             )}
           </div>
           <span className={styles.err}>
-            {passwordConfirm.error && <p>{passwordConfirm.error}
-            </p>}
+            {passwordConfirm.error && <p>{passwordConfirm.error}</p>}
             {err}
           </span>
-          <button onClick={handleClick} className={styles.botao}>CRIAR CONTA</button>
+          <button onClick={handleClick} className={styles.botao}>
+            CRIAR CONTA
+          </button>
           <p className={styles.possuiConta}>
             Já possui uma conta?
             <Link to="/login" className={styles.cliqueAqui}>
