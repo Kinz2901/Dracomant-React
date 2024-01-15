@@ -5,8 +5,8 @@ export default function Buttons() {
   return (
     <>
       <div className={styles.divButtons}>
-        <Link to="login">Login</Link>
-        <Link to="criarlogin">Criar Login</Link>
+        <Link className={`${styles.login} ${styles.button}`} to="login">Login</Link>
+        <Link className={`${styles.criarLogin} ${styles.button}`} to="criarlogin">Criar Login</Link>
       </div>
     </>
   );

@@ -3,7 +3,7 @@
   gap: 20px;
 }
 
-.divButtons a {
+.button {
   text-decoration: none;
   color: white;
   padding: 16px 30px;
@@ -13,7 +13,17 @@
   letter-spacing: 2px;
 }
 
-.divButtons a:hover {
+.login:hover {
   background-color: white;
   color: var(--bg-color);
+}
+
+.criarLogin {
+  background-color: rgb(0, 110, 255);
+  border: 2px solid rgb(0, 110, 255);
+}
+
+.criarLogin:hover {
+  background-color: rgb(0, 56, 129);
+  border: 2px solid rgb(0, 56, 129);
 }
