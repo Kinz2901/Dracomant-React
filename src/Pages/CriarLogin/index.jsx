@@ -4,8 +4,6 @@ import { BsPerson, BsEyeSlash, BsEye } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import useVisiblePass from "../../hooks/useVisiblePass";
 import useForm from "../../hooks/useForm";
-import Header from "../../Components/Header";
-import Footer from "../../Components/Footer";
 
 export default function CriarLogin() {
   const name = useForm();
