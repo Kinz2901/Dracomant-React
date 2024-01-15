@@ -153,7 +153,7 @@ export default function CriarLogin() {
           </p>
         </form>
         <div className={styles.img}>
-          <h1 className={styles.coment}>Amplie seu negócio de forma rapida e tecnológica </h1>
+          <h1 className={styles.coment}>Amplie seu negócio de forma rapida e tecnológica</h1>
         </div>
       </div>
     </div>
