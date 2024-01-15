@@ -6,9 +6,7 @@ export default function RootLayout() {
   return (
     <>
       <Header />
-      <main className="conteudo">
-        <Outlet />
-      </main>
+      <Outlet />
       <Footer />
     </>
   );

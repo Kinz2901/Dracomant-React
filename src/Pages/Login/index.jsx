@@ -32,8 +32,8 @@ export default function Login() {
   }
 
   return (
-    <>
-      <div className={styles.main}>
+    <div className={styles.main}>
+      <div className={styles.bloco}>
         <form className={styles.form}>
           <h2 className={styles.titulo}>DRACOMANT</h2>
           <p className={styles.criarConta}>LOGIN</p>
@@ -103,7 +103,8 @@ export default function Login() {
             </Link>
           </p>
         </form>
+        <div className={styles.img}></div>
       </div>
-    </>
+    </div>
   );
 }

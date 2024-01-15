@@ -39,9 +39,8 @@ export default function CriarLogin() {
   }
 
   return (
-    <>
-      <div className={styles.main}>
-        <div className={styles.img}></div>
+    <div className={styles.main}>
+      <div className={styles.bloco}>
         <form onSubmit={(ev) => ev.preventDefault()} className={styles.form}>
           <h2 className={styles.titulo}>DRACOMANT</h2>
           <p className={styles.criarConta}>CRIE UMA CONTA</p>
@@ -153,7 +152,10 @@ export default function CriarLogin() {
             </Link>
           </p>
         </form>
+        <div className={styles.img}>
+          <h1 className={styles.coment}>Amplie seu negócio de forma rapida e tecnológica </h1>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
