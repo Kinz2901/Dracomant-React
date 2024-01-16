@@ -1,7 +1,7 @@
-const Api = (request, response) => {
+async function Api(request, response) {
   const dynamicDate = new Date();
 
-  const resposta = response.json({
+  const resposta = await response.json({
     date: dynamicDate.toGMTString(),
   });
 
