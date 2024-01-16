@@ -1,11 +1,11 @@
 const Api = (request, response) => {
   const dynamicDate = new Date();
 
-  response.json({
+  const resposta = response.json({
     date: dynamicDate.toGMTString(),
   });
 
-  return { request, response };
+  return { resposta };
 };
 
 export default Api;
