@@ -1,7 +1,9 @@
 import styles from "./index.module.css";
 import products from "../../../database.json";
 
-export default function Template() {
+
+export default function Template() {  
+
   return (
     <>
       {products.map((product) => (
