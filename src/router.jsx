@@ -7,7 +7,7 @@ import RootLayout from "./Components/Layout/RootLayout";
 import Login from "./Pages/Login";
 import CriarLogin from "./Pages/CriarLogin";
 import Atendimento from "./Pages/Atendimento";
-import api from "./api"
+import Conta from "./Components/Conta/Conta";
 
 const router = createBrowserRouter([
   {
@@ -42,12 +42,12 @@ const router = createBrowserRouter([
         path: "/atendimento",
         element: <Atendimento />,
       },
-      {
-        path: "/api",
-        element: <Api />,
-      },
     ],
   },
+  {
+    path: "/minhaconta",
+    element: <Conta />,
+  }
 ]);
 
 export default router;

@@ -14,3 +14,7 @@ body {
   color: white;
   background-color: var(--bg-color);
 }
+
+a {
+  text-decoration: none;
+}
