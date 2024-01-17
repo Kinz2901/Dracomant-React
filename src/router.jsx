@@ -7,7 +7,7 @@ import RootLayout from "./Components/Layout/RootLayout";
 import Login from "./Pages/Login";
 import CriarLogin from "./Pages/CriarLogin";
 import Atendimento from "./Pages/Atendimento";
-import Conta from "./Components/Conta/Conta";
+import Conta from "./Pages/Conta/Conta";
 
 const router = createBrowserRouter([
   {
