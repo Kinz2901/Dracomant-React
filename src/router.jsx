@@ -42,12 +42,12 @@ const router = createBrowserRouter([
         path: "/atendimento",
         element: <Atendimento />,
       },
+      {
+        path: "/minhaconta",
+        element: <Conta />,
+      }
     ],
   },
-  {
-    path: "/minhaconta",
-    element: <Conta />,
-  }
 ]);
 
 export default router;

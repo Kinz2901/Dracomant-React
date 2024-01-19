@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from './index.module.css'
 
 const Conta = () => {
   return (
-    <div>Conta</div>
+    <div className={styles.main}>Conta</div>
   )
 }
 
