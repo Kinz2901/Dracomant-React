@@ -21,7 +21,7 @@ const Conta = () => {
           <div className={styles.blocoDois}>
             <div className={styles.escritas}>
               <label>Nome</label>
-              <div><input type="text" /> <MdModeEditOutline/></div>
+              <div className={styles.blocoInput}><input type="text" /> <MdModeEditOutline className={styles.btnEdit}/></div>
               <label>E-mail</label>
               <p>Kinzlindo123456@gmail.com</p>
             </div>
@@ -35,9 +35,11 @@ const Conta = () => {
             </div>
           </div>
         </div>
-        <button className={`${styles.button} ${styles.btnSair}`}>
-          <IoExitOutline /> Sair
-        </button>
+        <div className={styles.sair}>
+          <button className={`${styles.button} ${styles.btnSair}`}>
+            <IoExitOutline /> Sair
+          </button>
+        </div>
       </div>
     </main>
   );

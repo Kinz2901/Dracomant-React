@@ -62,14 +62,29 @@
   gap: 20px;
 }
 
-.escritas input {
-  width: 200px;
-  padding: 8px;
-
+.blocoInput {
+  border-radius: 5px;
 }
+
+.escritas input {
+  width: 300px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+}
+
+.btnEdit {
+  color: var(--bg-color);
+  background-color: white;
+} 
 
 .escritas p {
   color: #999999;
+}
+
+.buttons{
+  display: flex;
+  gap: auto;
 }
 
 .button {
@@ -87,6 +102,11 @@
 .btnSalvar {
   color: #3B8F4D;
   border: solid 2px #3B8F4D;
+}
+
+.sair {
+  display: flex;
+  justify-content: center;
 }
 
 .btnSair {
