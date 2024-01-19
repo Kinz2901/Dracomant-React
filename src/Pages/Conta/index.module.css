@@ -25,7 +25,7 @@
   height: 1px;
   display: block;
   margin-top: 40px;
-  background-color: #d9d9d9;
+  background-color: #999999;
 }
 
 .fotoPerfil {
@@ -40,10 +40,57 @@
   color: #d9d9d9;
 }
 
+.fotoEBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .components {
   display: flex;
 }
 
+.blocoDois {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .escritas {
-  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.escritas input {
+  width: 200px;
+  padding: 8px;
+
+}
+
+.escritas p {
+  color: #999999;
+}
+
+.button {
+  border-radius: 100px;
+  background-color: transparent;
+  border: solid 2px #999999;
+  color: #999999;
+  padding: 8px;
+}
+
+.btnFoto {
+  margin: auto;
+}
+
+.btnSalvar {
+  color: #3B8F4D;
+  border: solid 2px #3B8F4D;
+}
+
+.btnSair {
+  color: #ff0000;
+  border: solid 2px #ff0000;
+  margin-top: 40px;
 }
