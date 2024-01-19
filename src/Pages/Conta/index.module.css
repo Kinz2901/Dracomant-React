@@ -1,4 +1,49 @@
 .main {
   background-color: beige;
-  height: calc(100vh - 200px);  
+  height: calc(100vh - 200px);
+  display: flex;
+  justify-content: center;
+}
+
+.bloco {
+  width: 1100px;
+  margin: 80px 0px;
+  margin-bottom: 80px;
+  background-color: var(--bg-color);
+  border-radius: 15px;
+}
+
+.minhaConta {
+  font-size: 40px;
+  margin: 40px 0px;
+  text-align: center;
+}
+
+.minhaConta::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  display: block;
+  margin-top: 40px;
+  background-color: #d9d9d9;
+}
+
+.fotoPerfil {
+  width: 200px;
+  border-radius: 100%;
+  margin: 0px 80px;
+}
+
+.iconUser {
+  width: 100%;
+  height: 100%;
+  color: #d9d9d9;
+}
+
+.components {
+  display: flex;
+}
+
+.escritas {
+  
 }
