@@ -84,7 +84,7 @@
 
 .buttons{
   display: flex;
-  gap: auto;
+  justify-content: space-between;
 }
 
 .button {

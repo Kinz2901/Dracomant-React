@@ -26,7 +26,7 @@ const Conta = () => {
               <p>Kinzlindo123456@gmail.com</p>
             </div>
             <div className={styles.buttons}>
-              <button className={`${styles.button} ${styles.btnFoto}`}>
+              <button className={`${styles.button}`}>
                 Alterar Senha
               </button>
               <button className={`${styles.button} ${styles.btnSalvar}`}>
