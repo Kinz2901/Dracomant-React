@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./index.module.css";
 import { FaCircleUser } from "react-icons/fa6";
 import { IoExitOutline } from "react-icons/io5";
 import { MdModeEditOutline } from "react-icons/md";
+import UserContext from "../../UserContext";
 
 const Conta = () => {
+  const {nome} = useContext(UserContext)
+
   return (
     <main className={styles.main}>
       <div className={styles.bloco}>
@@ -21,7 +24,7 @@ const Conta = () => {
           <div className={styles.blocoDois}>
             <div className={styles.escritas}>
               <label>Nome</label>
-              <div className={styles.blocoInput}><input type="text" /> <MdModeEditOutline className={styles.btnEdit}/></div>
+              <div className={styles.blocoInput}><input type="text" value={nome} disabled/> <MdModeEditOutline className={styles.btnEdit}/></div>
               <label>E-mail</label>
               <p>Kinzlindo123456@gmail.com</p>
             </div>
