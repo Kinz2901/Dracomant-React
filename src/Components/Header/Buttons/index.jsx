@@ -5,9 +5,8 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 import UserContext from "../../../UserContext";
 
 export default function Buttons() {
-  const {nome} = useContext(UserContext)
-  const [login, useLogin] = useState(true);
-
+  const {nome, login, setLogin} = useContext(UserContext)
+  
   return (
     <>
       {login ? (

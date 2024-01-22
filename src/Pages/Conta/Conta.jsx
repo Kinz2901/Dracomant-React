@@ -6,7 +6,15 @@ import { MdModeEditOutline } from "react-icons/md";
 import UserContext from "../../UserContext";
 
 const Conta = () => {
-  const {nome} = useContext(UserContext)
+  const {nome, setNome, setLogin} = useContext(UserContext)
+
+  function AlterarNome() {
+    setNome('Mudou')
+  }
+
+  function logout() {
+    setLogin(false);
+  }
 
   return (
     <main className={styles.main}>
@@ -24,7 +32,7 @@ const Conta = () => {
           <div className={styles.blocoDois}>
             <div className={styles.escritas}>
               <label>Nome</label>
-              <div className={styles.blocoInput}><input type="text" value={nome} disabled/> <MdModeEditOutline className={styles.btnEdit}/></div>
+              <div className={styles.blocoInput}><input type="text" value={nome} disabled/> <MdModeEditOutline onClick={AlterarNome} className={styles.btnEdit}/></div>
               <label>E-mail</label>
               <p>Kinzlindo123456@gmail.com</p>
             </div>
@@ -33,14 +41,14 @@ const Conta = () => {
                 Alterar Senha
               </button>
               <button className={`${styles.button} ${styles.btnSalvar}`}>
-                Alterar Foto
+                Salvar
               </button>
             </div>
           </div>
         </div>
         <div className={styles.sair}>
-          <button className={`${styles.button} ${styles.btnSair}`}>
-            <IoExitOutline /> Sair
+          <button onClick={logout} className={`${styles.button} ${styles.btnSair}`}>
+            <IoExitOutline/> Sair
           </button>
         </div>
       </div>
