@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
 import Template from "./Templates";
+import { IoIosArrowDown } from "react-icons/io";
 
 export default function Home() {
   const scrollSuave = (ev) => {
@@ -34,7 +35,9 @@ export default function Home() {
               </Link>
               <a onClick={scrollSuave} href="#templates" className={styles.botaoAgendamento}>
                 <span>
-                  Ver Templates
+                  Ver Templates <IoIosArrowDown style={{
+                    position: 'relative',
+                    top: '3px'}} />
                 </span>
               </a>
             </div>

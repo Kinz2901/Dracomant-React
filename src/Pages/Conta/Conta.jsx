@@ -4,12 +4,13 @@ import { FaCircleUser } from "react-icons/fa6";
 import { IoExitOutline } from "react-icons/io5";
 import { MdModeEditOutline } from "react-icons/md";
 import UserContext from "../../UserContext";
+import { useNavigate } from "react-router-dom";
 
 const Conta = () => {
   const { nome, setNome, setLogin } = useContext(UserContext);
   const [tempName, setTempName] = useState("");
   const inputName = useRef();
-  const divBtns = useRef();
+  const navigate = useNavigate()
 
   useEffect(() => {
     setTempName(nome);
@@ -22,6 +23,7 @@ const Conta = () => {
 
   function logout() {
     setLogin(false);
+    navigate("/login")
   }
 
   function cancel() {
@@ -30,10 +32,6 @@ const Conta = () => {
 
   function salvar() {
     setNome(tempName);
-  }
-
-  function sair() {
-    setLogin(false)
   }
 
   return (
