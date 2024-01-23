@@ -62,7 +62,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 300px;
+  width: 500px;
 }
 
 .blocoInput {
@@ -75,15 +75,16 @@
 
 .escritas input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   color: #d9d9d9;
   background-color: #999999;
+  outline: none;
 }
 
 .btnEdit {
-  padding: 8px;
+  padding: 10px;
   border-radius: 0px 5px 5px 0px;
   cursor: pointer;
 } 
@@ -131,13 +132,11 @@
   margin-top: 40px;
 }
 
-.btnsName {
-  display: flex;
-  justify-content: space-between;
+.buttonIgn {
+  width: 140px;
 }
 
-.mudarNameBtn {
-  width: 100px;
-  color: #3B8F4D;
-  border: solid 2px #3B8F4D;
+.ignorDiv {
+  display: flex;
+  gap: 20px;
 }

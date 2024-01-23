@@ -9,6 +9,7 @@ const Conta = () => {
   const { nome, setNome, setLogin } = useContext(UserContext);
   const [tempName, setTempName] = useState("");
   const inputName = useRef();
+  const divBtns = useRef();
 
   useEffect(() => {
     setTempName(nome);
@@ -21,6 +22,18 @@ const Conta = () => {
 
   function logout() {
     setLogin(false);
+  }
+
+  function cancel() {
+    setTempName(nome);
+  }
+
+  function salvar() {
+    setNome(tempName);
+  }
+
+  function sair() {
+    setLogin(false)
   }
 
   return (
@@ -39,35 +52,38 @@ const Conta = () => {
           <div className={styles.blocoDois}>
             <div className={styles.escritas}>
               <label>Nome</label>
-              <div className={styles.blocoInput}>
-                <input
-                  type="text"
-                  value={tempName}
-                  onChange={({ target }) => setTempName(target.value)}
-                  disabled
-                  ref={inputName}
-                />{" "}
-                <MdModeEditOutline
-                  onClick={AlterarNome}
-                  className={styles.btnEdit}
-                />
-              </div>
-              {tempName !== nome && (
-                <div className={styles.btnsName}>
-                  <button className={`${styles.button}`}>
-                    Cancelar
-                  </button>
-                  <button className={`${styles.button} ${styles.mudarNameBtn}`}>
-                    Alterar nome
-                  </button>
+              <div className={styles.ignorDiv}>
+                <div className={styles.blocoInput}>
+                  <input
+                    type="text"
+                    value={tempName}
+                    onChange={({ target }) => setTempName(target.value)}
+                    disabled
+                    ref={inputName}
+                  />
+                  <MdModeEditOutline
+                    onClick={AlterarNome}
+                    className={styles.btnEdit}
+                  />
                 </div>
-              )}
+                {tempName !== nome && (
+                  <button
+                    onClick={cancel}
+                    className={`${styles.button} ${styles.buttonIgn}`}
+                  >
+                    Ignorar mudanças
+                  </button>
+                )}
+              </div>
               <label>E-mail</label>
               <p>Kinzlindo123456@gmail.com</p>
             </div>
             <div className={styles.buttons}>
               <button className={`${styles.button}`}>Alterar Senha</button>
-              <button className={`${styles.button} ${styles.btnSalvar}`}>
+              <button
+                onClick={salvar}
+                className={`${styles.button} ${styles.btnSalvar}`}
+              >
                 Salvar
               </button>
             </div>
