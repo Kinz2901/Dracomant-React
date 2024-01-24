@@ -28,7 +28,14 @@
     "description": "Este é um site que oferece uma narrativa detalhada e abrangente da famosa franquia de mídia japonesa \"Dragon Ball\", criada por Akira Toriyama. O site explora a história de Dragon Ball desde o início, abrangendo todas as suas séries, incluindo \"Dragon Ball\", \"Dragon Ball Z\", \"Dragon Ball GT\" e \"Dragon Ball Super\", bem como seus filmes, mangás e produtos relacionados."
   },
   {
-    "id": 5,
+    "id": 5, 
+    "title": "Dogs",
+    "link": "https://dogs-xi-eight.vercel.app",
+    "img": "https://github.com/Kinz2901/Dracomant/blob/main/imagens/dogs.png?raw=true",
+    "description": "Dogs é a rede social definitiva dedicada exclusivamente aos nossos queridos amigos peludos. Desenvolvida para unir amantes de animais de estimação de todas as partes do mundo, essa plataforma inovadora proporciona uma experiência única para aqueles que consideram seus animais como parte integrante de suas vidas."
+  },
+  {
+    "id": 6,
     "title": "Dracomant",
     "link": "/",
     "img": "https://github.com/Kinz2901/Dracomant/blob/main/imagens/template-1.png?raw=true",
