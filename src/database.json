@@ -28,7 +28,7 @@
     "description": "Este é um site que oferece uma narrativa detalhada e abrangente da famosa franquia de mídia japonesa \"Dragon Ball\", criada por Akira Toriyama. O site explora a história de Dragon Ball desde o início, abrangendo todas as suas séries, incluindo \"Dragon Ball\", \"Dragon Ball Z\" e \"Dragon Ball Super\", bem como seus filmes, mangás e produtos relacionados."
   },
   {
-    "id": 5, 
+    "id": 5,
     "title": "Dogs",
     "link": "https://dogs-xi-eight.vercel.app",
     "img": "https://github.com/Kinz2901/Dracomant/blob/main/imagens/dogs.png?raw=true",
@@ -39,6 +39,6 @@
     "title": "Dracomant",
     "link": "/",
     "img": "https://github.com/Kinz2901/Dracomant/blob/main/imagens/template-1.png?raw=true",
-    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio nam quis sequi porro. Itaque voluptates recusandae voluptas in ipsam doloribus exercitationem fugit et reprehenderit, vitae, magni adipisci explicabo quaerat quod?"
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio nam quis sequi porro. Itaque voluptates recusandae voluptas in ipsam doloribus exercitationem fugit et reprehenderit, vitae, magni adipisci explicabo quaerat quods?"
   }
 ]
