@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Garet";
+  src: url("../../font/Garet-Book.woff") format("woff");
+}
+
+.content {
+  height: calc(100vh - 200px);
+  background-color: #444444;
+}
+
+.h1 {
+  font-family: Garet;
+}
+

@@ -1,5 +1,6 @@
 :root {
-  --font-cinzel: "Cinzel", cursive;
+  --font-cinzel: "Cinzel", arial;
+  --font-garet: "Garet", arial;
   --bg-color: rgb(37, 37, 37);
 }
 
