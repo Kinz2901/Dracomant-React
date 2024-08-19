@@ -49,11 +49,13 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border-radius: 12px
+  border-radius: 12px;
+  transition: transform .5s;
 }
 
 .button:hover {
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .logo {
