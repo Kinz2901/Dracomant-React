@@ -7,12 +7,12 @@ import UserContext from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 
 const Conta = () => {
-  const { nome, setNome, setLogin, avatar, setAvatar } = useContext(UserContext);
+  const { nome, setNome, setLogin, avatar, setAvatar } =
+    useContext(UserContext);
   const [tempName, setTempName] = useState("");
   const inputName = useRef();
-  const [tempImg, setTempImg] = useState(null);
-  const [imagem, setImagem] = useState(null);
-  const [teste, setTeste] = useState("")
+  const [avatarName, setAvatarName] = useState(null);
+  const [avatarTemp, setAvatarTemp] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const Conta = () => {
 
   function salvar() {
     setNome(tempName);
-    setAvatar(tempImg)
+    setAvatar(avatarTemp);
   }
 
   return (
@@ -45,17 +45,23 @@ const Conta = () => {
         <div className={styles.components}>
           <div className={styles.fotoEBtn}>
             <div className={styles.fotoPerfil}>
-              {imagem? <img src={imagem} className={styles.iconUser} alt="imagem de perfil"/> :
-              <FaCircleUser className={styles.iconUser} />}
+              {avatarTemp ? (
+                <img
+                  src={avatarTemp}
+                  className={styles.iconUser}
+                  alt={avatarName}
+                />
+              ) : (
+                <FaCircleUser className={styles.iconUser} />
+              )}
             </div>
             <input
               type="file"
               accept="imagem/jpg, image/jpeg, image/png"
-              
-              onChange={({target: {files}}) => {
-                files[0] && setTempImg(files[0].name)
-                if(files) {
-                  setImagem(URL.createObjectURL(files[0]))
+              onChange={({ target: { files } }) => {
+                files[0] && setAvatarName(files[0].name);
+                if (files) {
+                  setAvatarTemp(URL.createObjectURL(files[0]));
                 }
               }}
               className={`${styles.button} ${styles.btnFoto}`}
