@@ -55,8 +55,13 @@ const Conta = () => {
                 <FaCircleUser className={styles.iconUser} />
               )}
             </div>
+            <label for='selecao-arquivo' className={`${styles.button} ${styles.btnFoto}`}>
+              {avatarTemp? <p>Alterar avatar</p> : <p>Adicionar avatar</p>}
+            </label>
             <input
               type="file"
+              id = "selecao-arquivo"
+              hidden
               accept="imagem/jpg, image/jpeg, image/png"
               onChange={({ target: { files } }) => {
                 files[0] && setAvatarName(files[0].name);
@@ -64,8 +69,8 @@ const Conta = () => {
                   setAvatarTemp(URL.createObjectURL(files[0]));
                 }
               }}
-              className={`${styles.button} ${styles.btnFoto}`}
-            ></input>
+              className={styles.inputImg}
+            />
           </div>
           <div className={styles.blocoDois}>
             <div className={styles.escritas}>

@@ -114,7 +114,24 @@
 }
 
 .btnFoto {
+  display: flex;
   margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+
+}
+
+input[type='file'] {
+  background-color: transparent;
+}
+
+.inputImg {
+  border-radius: 100px;
+  cursor: pointer;
+  width: 100%;
+  background-color: aquamarine;
 }
 
 .btnSalvar {
