@@ -1,8 +1,6 @@
 import styles from "./index.module.css";
-import Desenvolvimento from "../../Components/Desenvolvimento/desenvolvimento";
+import Desenvolvimento from "../../Components/Desenvolvimento";
 
 export default function Curiosidades() {
-  return (
-    <Desenvolvimento/>
-  );
+  return <Desenvolvimento />;
 }

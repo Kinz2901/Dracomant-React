@@ -1,6 +1,7 @@
 .divButtons {
   display: flex;
   gap: 20px;
+  min-width: 297px;
 }
 
 .button {
@@ -36,10 +37,18 @@
   color: white;
 }
 
+.loged {
+  display: flex;
+  flex-basis: 297px;
+  justify-content: end;
+}
+
 .logado p {
   font-size: 1.2em;
+  
 }
 
 .userIcon {
   font-size: 2.4em;
 }
+
