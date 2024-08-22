@@ -7,10 +7,13 @@ import UserContext from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 
 const Conta = () => {
-  const { nome, setNome, setLogin } = useContext(UserContext);
+  const { nome, setNome, setLogin, avatar, setAvatar } = useContext(UserContext);
   const [tempName, setTempName] = useState("");
   const inputName = useRef();
-  const navigate = useNavigate()
+  const [tempImg, setTempImg] = useState(null);
+  const [imagem, setImagem] = useState(null);
+  const [teste, setTeste] = useState("")
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTempName(nome);
@@ -23,7 +26,7 @@ const Conta = () => {
 
   function logout() {
     setLogin(false);
-    navigate("/login")
+    navigate("/login");
   }
 
   function cancel() {
@@ -32,6 +35,7 @@ const Conta = () => {
 
   function salvar() {
     setNome(tempName);
+    setAvatar(tempImg)
   }
 
   return (
@@ -41,11 +45,21 @@ const Conta = () => {
         <div className={styles.components}>
           <div className={styles.fotoEBtn}>
             <div className={styles.fotoPerfil}>
-              <FaCircleUser className={styles.iconUser} />
+              {imagem? <img src={imagem} className={styles.iconUser} alt="imagem de perfil"/> :
+              <FaCircleUser className={styles.iconUser} />}
             </div>
-            <button className={`${styles.button} ${styles.btnFoto}`}>
-              Alterar Foto
-            </button>
+            <input
+              type="file"
+              accept="imagem/jpg, image/jpeg, image/png"
+              
+              onChange={({target: {files}}) => {
+                files[0] && setTempImg(files[0].name)
+                if(files) {
+                  setImagem(URL.createObjectURL(files[0]))
+                }
+              }}
+              className={`${styles.button} ${styles.btnFoto}`}
+            ></input>
           </div>
           <div className={styles.blocoDois}>
             <div className={styles.escritas}>
