@@ -7,7 +7,7 @@ import UserContext from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 
 const Conta = () => {
-  const { username, setUsername, setLogin, avatar, setAvatar } =
+  const { username, setUsername, userEmail, avatar, setAvatar, setLogin} =
     useContext(UserContext);
   const [tempName, setTempName] = useState("");
   const inputName = useRef();
@@ -100,7 +100,7 @@ const Conta = () => {
                 )}
               </div>
               <label>E-mail</label>
-              <p>Kinzlindo123456@gmail.com</p>
+              <p>{userEmail}</p>
             </div>
             <div className={styles.buttons}>
               <button className={`${styles.button}`}>Alterar Senha</button>
