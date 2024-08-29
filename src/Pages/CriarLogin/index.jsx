@@ -7,7 +7,7 @@ import useForm from "../../hooks/useForm";
 import { useContext } from "react";
 import UserContext from "../../UserContext";
 
-export default function CriarLogin() {
+const CriarLogin = () => {
   const { setUsername, setLogin, setUserEmail } = useContext(UserContext);
   const name = useForm();
   const email = useForm("email");
@@ -25,10 +25,10 @@ export default function CriarLogin() {
 
   function handleClick() {
     // FAZER VERIFIÇÃO E ADICIONAR NO BANCODE DADOS
-    setUsername(name)
-    setUserEmail(email)
-    setLogin(true)
-    navigate("/login");
+    setUsername(name.value);
+    setUserEmail(email.value);
+    setLogin(true);
+    navigate("/minhaconta");
   }
 
   // Tenho que concertar essa gambiarra ↴
@@ -164,4 +164,6 @@ export default function CriarLogin() {
       </div>
     </div>
   );
-}
+};
+
+export default CriarLogin;
