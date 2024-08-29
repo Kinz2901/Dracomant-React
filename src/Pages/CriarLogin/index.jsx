@@ -21,14 +21,26 @@ const CriarLogin = () => {
     setVisiblePass,
     visiblePassConfirm,
     setVisiblePassConfirm,
+    error,
   } = useVisiblePass();
 
   function handleClick() {
     // FAZER VERIFIÇÃO E ADICIONAR NO BANCODE DADOS
-    setUsername(name.value);
-    setUserEmail(email.value);
-    setLogin(true);
-    navigate("/minhaconta");
+    if (
+      (!name.error &&
+        !email.error &&
+        !password.error &&
+        !passwordConfirm.error) &&
+      (name.value != "" && email.value != "") &&
+      password.value != "" &&
+      passwordConfirm.value != ""
+    ) {
+      console.log(error);
+      setUsername(name.value);
+      setUserEmail(email.value);
+      setLogin(true);
+      navigate("/");
+    }
   }
 
   // Tenho que concertar essa gambiarra ↴
