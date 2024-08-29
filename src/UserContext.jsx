@@ -6,7 +6,7 @@ export const UserStorage = ({ children }) => {
   const [username, setUsername] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
   const [avatar, setAvatar] = useState(null);
-  const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(false);
   const clear = () => {
     setUsername(null);
     setUserEmail(null);

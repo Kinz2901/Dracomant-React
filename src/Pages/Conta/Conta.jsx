@@ -7,7 +7,7 @@ import UserContext from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 
 const Conta = () => {
-  const { username, setUsername, userEmail, avatar, setAvatar, clear} =
+  const { username, setUsername, userEmail, avatar, setAvatar, clear } =
     useContext(UserContext);
   const [tempName, setTempName] = useState("");
   const inputName = useRef();
@@ -17,7 +17,7 @@ const Conta = () => {
 
   useEffect(() => {
     setTempName(username);
-    setAvatarTemp(avatar)
+    setAvatarTemp(avatar);
   }, [username]);
 
   function AlterarNome() {
@@ -26,7 +26,7 @@ const Conta = () => {
   }
 
   function logout() {
-    clear()
+    clear();
     navigate("/login");
   }
 
@@ -56,12 +56,22 @@ const Conta = () => {
                 <FaCircleUser className={styles.iconUser} />
               )}
             </div>
-            <label htmlFor='selecao-arquivo' className={`${styles.button} ${styles.btnFoto}`}>
-              {avatarTemp? <p>Alterar avatar</p> : <p>Adicionar avatar</p>}
-            </label>
+            <div className={styles.btsAv}>
+              <label
+                htmlFor="selecao-arquivo"
+                className={`${styles.button} ${styles.btnFoto}`}
+              >
+                {avatarTemp ? <p>Alterar avatar</p> : <p>Adicionar avatar</p>}
+              </label>
+              {avatarTemp ? (
+                <button className={`${styles.button} ${styles.btnFoto} ${styles.btRemoveAv}`}>
+                  <p>Remover avatar</p>
+                </button>
+              ) : null}
+            </div>
             <input
               type="file"
-              id = "selecao-arquivo"
+              id="selecao-arquivo"
               hidden
               accept="imagem/jpg, image/jpeg, image/png"
               onChange={({ target: { files } }) => {
