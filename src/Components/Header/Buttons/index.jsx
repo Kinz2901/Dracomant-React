@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import UserContext from "../../../UserContext";
 
 export default function Buttons() {
-  const { nome, login, setLogin } = useContext(UserContext);
+  const { nome, login, setLogin, avatar } = useContext(UserContext);
 
   return (
     <>
       {login ? (
         <div className={styles.loged}>
           <Link to="minhaconta" className={styles.logado}>
-            <p>{nome}</p> <IoPersonCircleSharp className={styles.userIcon} />
+            <p>{nome}</p>
+            {avatar ? (
+              <img src={avatar} className={styles.userImg} />
+            ) : (
+              <IoPersonCircleSharp className={styles.userIcon} />
+            )}
           </Link>
         </div>
       ) : (

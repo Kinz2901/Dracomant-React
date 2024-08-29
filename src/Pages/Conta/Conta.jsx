@@ -17,6 +17,7 @@ const Conta = () => {
 
   useEffect(() => {
     setTempName(nome);
+    setAvatarTemp(avatar)
   }, [nome]);
 
   function AlterarNome() {
