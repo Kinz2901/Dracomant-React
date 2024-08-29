@@ -7,7 +7,7 @@ import UserContext from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 
 const Conta = () => {
-  const { username, setUsername, userEmail, avatar, setAvatar, setLogin} =
+  const { username, setUsername, userEmail, avatar, setAvatar, clear} =
     useContext(UserContext);
   const [tempName, setTempName] = useState("");
   const inputName = useRef();
@@ -26,7 +26,7 @@ const Conta = () => {
   }
 
   function logout() {
-    setLogin(false);
+    clear()
     navigate("/login");
   }
 

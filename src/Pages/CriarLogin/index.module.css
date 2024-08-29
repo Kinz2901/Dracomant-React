@@ -7,14 +7,14 @@
 }
 
 .bloco {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  background-color: aquamarine;
 }
 
 .img {
   background: url(../../img/imgLogin.jpg) no-repeat bottom/cover;
-  height: 100%;
-  grid-column: 2 / 4;
+  width: 400px;
 }
 
 .form {
@@ -24,7 +24,6 @@
   width: 300px;
   padding: 50px;
   background-color: white;
-  grid-column: 1 / 2;
 }
 
 .titulo {
@@ -110,7 +109,6 @@
 }
 
 .coment {
-  font-size: 50px;
-  max-width: 600px;
-  margin: 4rem;
+  font-size: 35px;
+  margin: 2rem;
 }

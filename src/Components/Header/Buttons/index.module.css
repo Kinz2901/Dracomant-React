@@ -32,7 +32,7 @@
 .logado {
   display: flex;
   align-items: center;
-  gap: 0.6em;
+  gap: 1em;
   cursor: pointer;
   color: white;
 }

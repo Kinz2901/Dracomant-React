@@ -131,7 +131,6 @@ input[type='file'] {
   border-radius: 100px;
   cursor: pointer;
   width: 100%;
-  background-color: aquamarine;
 }
 
 .btnSalvar {
