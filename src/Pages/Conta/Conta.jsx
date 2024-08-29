@@ -7,7 +7,7 @@ import UserContext from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 
 const Conta = () => {
-  const { nome, setNome, setLogin, avatar, setAvatar } =
+  const { username, setUsername, setLogin, avatar, setAvatar } =
     useContext(UserContext);
   const [tempName, setTempName] = useState("");
   const inputName = useRef();
@@ -16,9 +16,9 @@ const Conta = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTempName(nome);
+    setTempName(username);
     setAvatarTemp(avatar)
-  }, [nome]);
+  }, [username]);
 
   function AlterarNome() {
     inputName.current.removeAttribute("disabled");
@@ -31,11 +31,11 @@ const Conta = () => {
   }
 
   function cancel() {
-    setTempName(nome);
+    setTempName(username);
   }
 
   function salvar() {
-    setNome(tempName);
+    setUsername(tempName);
     setAvatar(avatarTemp);
   }
 
@@ -90,7 +90,7 @@ const Conta = () => {
                     className={styles.btnEdit}
                   />
                 </div>
-                {tempName !== nome && (
+                {tempName !== username && (
                   <button
                     onClick={cancel}
                     className={`${styles.button} ${styles.buttonIgn}`}

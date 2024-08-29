@@ -4,8 +4,8 @@ export default function useLogin() {
     const [visiblePass, setVisiblePass] = useState(false);
 
     const [ name, setName ] = useState()
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [ email, setEmail ] = useState("");
+    const [ password, setPassword ] = useState("");
     const [ picture, setPicture ] = useState()
     const [ logger, setLogger ] = useState(false)
 
