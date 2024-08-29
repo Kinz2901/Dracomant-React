@@ -56,7 +56,7 @@ const Conta = () => {
                 <FaCircleUser className={styles.iconUser} />
               )}
             </div>
-            <label for='selecao-arquivo' className={`${styles.button} ${styles.btnFoto}`}>
+            <label htmlFor='selecao-arquivo' className={`${styles.button} ${styles.btnFoto}`}>
               {avatarTemp? <p>Alterar avatar</p> : <p>Adicionar avatar</p>}
             </label>
             <input

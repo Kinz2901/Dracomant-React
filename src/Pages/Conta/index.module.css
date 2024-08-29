@@ -28,6 +28,10 @@
   background-color: #999999;
 }
 
+.components {
+  display: flex;
+}
+
 .fotoPerfil {
   width: 200px;
   border-radius: 100%;
@@ -47,8 +51,11 @@
   gap: 40px;
 }
 
-.components {
+.btsAv {
   display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 16px;
 }
 
 .blocoDois {
@@ -109,7 +116,7 @@
   background-color: transparent;
   border: solid 2px #999999;
   color: #999999;
-  padding: 8px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -134,19 +141,15 @@ input[type='file'] {
 }
 
 .btnSalvar {
-  color: #3B8F4D;
-  border: solid 2px #3B8F4D;
-}
-
-.sair {
-  display: flex;
-  justify-content: center;
+  color: #1b7a30;
+  border: solid 2px #1b7a30;
 }
 
 .btnSair {
-  color: #ff0000;
-  border: solid 2px #ff0000;
-  margin-top: 40px;
+  color: #bb0202;
+  border: solid 2px #bb0202;
+  margin-top: 0px;
+  width: 70px;
 }
 
 .buttonIgn {
@@ -156,4 +159,17 @@ input[type='file'] {
 .ignorDiv {
   display: flex;
   gap: 20px;
+}
+
+.sair {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.btRemoveAv {
+  color: #bb0202;
+  border: solid 2px #bb0202;
+  width: 160px;
+  font-size: 1.01em;
 }

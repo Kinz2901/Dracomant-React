@@ -45,7 +45,7 @@ export default function Login() {
               type="text"
               placeholder="E-mail do usuário"
               required
-              autocomplete="name"
+              autoComplete="name"
             />
             <AiOutlineMail className={styles.icons} />
           </div>

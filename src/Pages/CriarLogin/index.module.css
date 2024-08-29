@@ -9,7 +9,6 @@
 .bloco {
   display: flex;
   grid-template-columns: 1fr 1fr;
-  background-color: aquamarine;
 }
 
 .img {
