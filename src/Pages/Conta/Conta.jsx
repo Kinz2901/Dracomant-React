@@ -11,6 +11,7 @@ const Conta = () => {
     useContext(UserContext);
   const [tempName, setTempName] = useState("");
   const inputName = useRef();
+  const inputRef = useRef();
   const [avatarName, setAvatarName] = useState(null);
   const [avatarTemp, setAvatarTemp] = useState(null);
   const navigate = useNavigate();
@@ -28,6 +29,11 @@ const Conta = () => {
   function logout() {
     clear();
     navigate("/login");
+  }
+
+  function removerAv() {
+    inputRef.current.value = null
+    setAvatarTemp(null)
   }
 
   function cancel() {
@@ -64,12 +70,13 @@ const Conta = () => {
                 {avatarTemp ? <p>Alterar avatar</p> : <p>Adicionar avatar</p>}
               </label>
               {avatarTemp ? (
-                <button className={`${styles.button} ${styles.btnFoto} ${styles.btRemoveAv}`}>
+                <button onClick={removerAv} className={`${styles.button} ${styles.btnFoto} ${styles.btRemoveAv}`}>
                   <p>Remover avatar</p>
                 </button>
               ) : null}
             </div>
             <input
+              ref={inputRef}
               type="file"
               id="selecao-arquivo"
               hidden
