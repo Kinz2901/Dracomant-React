@@ -4,8 +4,11 @@ import { BsPerson, BsEyeSlash, BsEye } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import useVisiblePass from "../../hooks/useVisiblePass";
 import useForm from "../../hooks/useForm";
+import { useContext } from "react";
+import UserContext from "../../UserContext";
 
 export default function CriarLogin() {
+  const { setUsername, setLogin, setUserEmail } = useContext(UserContext);
   const name = useForm();
   const email = useForm("email");
   const password = useForm("password");
@@ -22,6 +25,9 @@ export default function CriarLogin() {
 
   function handleClick() {
     // FAZER VERIFIÇÃO E ADICIONAR NO BANCODE DADOS
+    setUsername(name)
+    setUserEmail(email)
+    setLogin(true)
     navigate("/login");
   }
 
@@ -151,7 +157,9 @@ export default function CriarLogin() {
           </p>
         </form>
         <div className={styles.img}>
-          <h1 className={styles.coment}>Amplie seu negócio de forma rapida e tecnológica</h1>
+          <h1 className={styles.coment}>
+            Amplie seu negócio de forma rapida e tecnológica
+          </h1>
         </div>
       </div>
     </div>
