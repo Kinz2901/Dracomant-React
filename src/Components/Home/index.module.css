@@ -15,8 +15,6 @@ main {
 .divAtendimento {
   background-color: rgba(185, 185, 185, 0.603);
   padding: 60px;
-  display: block;
-  height: 400px;
 }
 
 .divAtendimento h3 {
@@ -45,7 +43,7 @@ main {
   border: 2px solid var(--bg-color);
   letter-spacing: 2px;
   position: relative;
-  transition: all 0.35s;
+  transition: all 0.35s ease;
   background-color: transparent;
   text-decoration: none;
   color: var(--bg-color);
@@ -56,19 +54,9 @@ main {
   z-index: 2;
 }
 
-.botaoAgendamento:after {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background-color: var(--bg-color);
-  transition: all 0.35s;
-}
-
 .botaoAgendamento:hover {
   color: white;
+  background-color: var(--bg-color);
   cursor: pointer;
 }
 
