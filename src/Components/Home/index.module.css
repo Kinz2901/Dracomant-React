@@ -5,9 +5,10 @@ main {
 
 .fundoImg {
   width: 100%;
-  background: url(../../img/fundo-programando.jpg) no-repeat center/cover;
+  background: url(../../img/fundo-notebook.png) no-repeat center/cover;
   display: flex;
   justify-content: center;
+  align-items: center;
   height: calc(100vh - 250px);
 }
 
@@ -16,7 +17,6 @@ main {
   padding: 60px;
   display: block;
   height: 400px;
-  margin: 50px;
 }
 
 .divAtendimento h3 {
