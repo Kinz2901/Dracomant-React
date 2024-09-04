@@ -6,14 +6,16 @@ main {
 .fundoImg {
   width: 100%;
   background: url(../../img/fundo-programando.jpg) no-repeat center/cover;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 250px);
 }
 
 .divAtendimento {
   background-color: rgba(185, 185, 185, 0.603);
-  padding: 50px 50px 60px 50px;
+  padding: 60px;
+  display: block;
+  height: 400px;
   margin: 50px;
 }
 

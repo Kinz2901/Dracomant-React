@@ -26,18 +26,26 @@ export default function Home() {
               Dracomant é uma empresa de profissionais em desenvolvimento de
               sites!
             </h4>
-            <p className={styles.comentario}> 
+            <p className={styles.comentario}>
               Aqui entregamos seu site com a melhor qualidade e menor tempo.
             </p>
             <div className={styles.botoes}>
               <Link to={"/atendimento"} className={styles.botaoAgendamento}>
                 <span>Começe o atendimento</span>
               </Link>
-              <a onClick={scrollSuave} href="#templates" className={styles.botaoAgendamento}>
+              <a
+                onClick={scrollSuave}
+                href="#templates"
+                className={styles.botaoAgendamento}
+              >
                 <span>
-                  Ver Templates <IoIosArrowDown style={{
-                    position: 'relative',
-                    top: '3px'}} />
+                  Ver Templates{" "}
+                  <IoIosArrowDown
+                    style={{
+                      position: "relative",
+                      top: "3px",
+                    }}
+                  />
                 </span>
               </a>
             </div>
