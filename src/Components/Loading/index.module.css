@@ -1,14 +1,12 @@
 .loader {
   border: 10px solid white;
-  border-top: 10px solid gray;
+  border-top: 10px solid var(--bg-color);
   border-radius: 50px;
   width: 60px;
   height: 60px;
-  animation: loader 2s normal linear infinite;
+  animation: loader 1s normal linear infinite;
 }
 
 @keyframes loader {
-  100% {
-    transform: rotate(360deg);
-  }
+  100% { rotate:360deg }
 }
