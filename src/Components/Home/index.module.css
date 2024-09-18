@@ -5,20 +5,22 @@ main {
 
 .fundoImg {
   width: 100%;
-  background: url(../../img/fundo-notebook.png) no-repeat center/cover;
+  background: url(../../img/fundo-notebook.png) no-repeat right/cover;
   display: flex;
-  justify-content: center;
   align-items: center;
   height: calc(100vh - 250px);
 }
 
 .divAtendimento {
-  background-color: rgba(185, 185, 185, 0.603);
+  margin-left: 60px;
   padding: 60px;
+  gap: 10px;
 }
 
 .divAtendimento h3 {
   font-size: 3em;
+  margin-bottom: 100px;
+  line-height: 80px;
 }
 
 .divAtendimento h4 {
@@ -28,8 +30,7 @@ main {
 
 .divAtendimento .comentario {
   font-size: 1.2em;
-  padding-bottom: 30px;
-  margin-bottom: 20px;
+  margin: 60px 0px;
 }
 
 .botoes {
@@ -37,7 +38,7 @@ main {
   justify-content: space-between;
 }
 
-.botaoAgendamento {
+.botao {
   padding: 14px;
   font-size: 18px;
   border: 2px solid var(--bg-color);
@@ -47,32 +48,42 @@ main {
   background-color: transparent;
   text-decoration: none;
   color: var(--bg-color);
-}
-
-.botaoAgendamento span {
-  position: relative;
-  z-index: 2;
-}
-
-.botaoAgendamento:hover {
   color: white;
   background-color: var(--bg-color);
+  padding: 16px 20px;
+}
+
+.verTemps {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+}
+
+.botao:hover {
   cursor: pointer;
 }
 
-.botaoAgendamento:hover:after {
-  height: 100%;
-}
-
 .dracTem {
+  display: flex;
   text-align: center;
   font-size: 2.6em;
   padding: 54px 0px 14px 0px;
 }
 
+
+
+.verTemps:hover .seta {
+  transform: rotate(90deg)
+}
+
+
+
+
+
 .divTemplates {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 50px;
   padding: 40px 80px;
 }
