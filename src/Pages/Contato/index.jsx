@@ -1,8 +1,8 @@
 import styles from "./index.module.css";
-import logoWpp from "../../img/logo-whatsapp.png"
-import logoInsta from "../../img/logo-insta.png"
-import emailLogo from "../../img/Email-logo.png"
-import logoLinkedin from "../../img/logo-linkedin.png"
+import logoWpp from "../../assets/logo-whatsapp.png"
+import logoInsta from "../../assets/logo-insta.png"
+import emailLogo from "../../assets/Email-logo.png"
+import logoLinkedin from "../../assets/logo-linkedin.png"
 
 export default function Contato() {
   return (

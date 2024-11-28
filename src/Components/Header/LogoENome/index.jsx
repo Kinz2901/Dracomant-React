@@ -1,4 +1,4 @@
-import logo from "../../../img/logo.png";
+import logo from "../../../assets/logo.png";
 import styles from "./index.module.css";
 
 export default function LogoENome() {

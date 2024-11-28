@@ -7,12 +7,18 @@ import useForm from "../../hooks/useForm";
 import { useContext } from "react";
 import UserContext from "../../UserContext";
 
+import { auth } from "../../db/firebaseauth";
+
+import {
+  createUserWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
 const CriarLogin = () => {
   const { setUsername, setLogin, setUserEmail } = useContext(UserContext);
-  const name = useForm();
-  const email = useForm("email");
-  const password = useForm("password");
-  const passwordConfirm = useForm();
+  const inputName = useForm();
+  const inputEmail = useForm("email");
+  const inputPassword = useForm("password");
+  const inputPasswordConfirm = useForm();
 
   const navigate = useNavigate();
 
@@ -24,22 +30,38 @@ const CriarLogin = () => {
     error,
   } = useVisiblePass();
 
-  function handleClick() {
+  function criarConta() {
     // FAZER VERIFIÇÃO E ADICIONAR NO BANCODE DADOS
     if (
-      (!name.error &&
-        !email.error &&
-        !password.error &&
-        !passwordConfirm.error) &&
-      (name.value != "" && email.value != "") &&
-      password.value != "" &&
-      passwordConfirm.value != ""
+      !inputName.error &&
+      !inputEmail.error &&
+      !inputPassword.error &&
+      !inputPasswordConfirm.error &&
+      inputName.value != "" &&
+      inputEmail.value != "" &&
+      inputPassword.value != "" &&
+      inputPasswordConfirm.value != ""
     ) {
       console.log(error);
       setUsername(name.value);
       setUserEmail(email.value);
       setLogin(true);
       navigate("/");
+
+      // Initialize Firebase
+      
+
+      const name = inputName.value;
+      const email = inputEmail.value;
+      const password = inputPassword.value;
+
+      // const signIn = async () => {
+      //   try {
+      //     await createUserWithEmailAndPassword(auth, email, password)
+      //   } catch (err) {
+      //     console.log(err);
+      //   }
+      // }
     }
   }
 
@@ -48,8 +70,8 @@ const CriarLogin = () => {
   let err = null;
 
   if (
-    passwordConfirm.value.length !== 0 &&
-    passwordConfirm.value !== password.value
+    inputPasswordConfirm.value.length !== 0 &&
+    inputPasswordConfirm.value !== inputPassword.value
   ) {
     err = "As senhas não coincidem";
   }
@@ -62,7 +84,7 @@ const CriarLogin = () => {
           <p className={styles.criarConta}>CRIE UMA CONTA</p>
           <div
             className={`${styles.blocos_input} ${
-              name.error && styles.errInput
+              inputName.error && styles.errInput
             }`}
           >
             <input
@@ -70,18 +92,18 @@ const CriarLogin = () => {
               id="name"
               type="text"
               placeholder="Nome do usuário"
-              onChange={name.onChange}
-              onBlur={name.onBlur}
-              value={name.value}
+              onChange={inputName.onChange}
+              onBlur={inputName.onBlur}
+              value={inputName.value}
             />
             <BsPerson className={styles.icons} />
           </div>
           <span className={styles.err}>
-            {name.error && <p>{name.error}</p>}
+            {inputName.error && <p>{inputName.error}</p>}
           </span>
           <div
             className={`${styles.blocos_input} ${
-              email.error && styles.errInput
+              inputEmail.error && styles.errInput
             }`}
           >
             <input
@@ -89,18 +111,18 @@ const CriarLogin = () => {
               id="email"
               type="text"
               placeholder="Endereço de e-mail"
-              onChange={email.onChange}
-              onBlur={email.onBlur}
-              value={email.value}
+              onChange={inputEmail.onChange}
+              onBlur={inputEmail.onBlur}
+              value={inputEmail.value}
             />
             <AiOutlineMail className={styles.icons} />
           </div>
           <span className={styles.err}>
-            {email.error && <p>{email.error}</p>}
+            {inputEmail.error && <p>{inputEmail.error}</p>}
           </span>
           <div
             className={`${styles.blocos_input} ${
-              password.error && styles.errInput
+              inputPassword.error && styles.errInput
             }`}
           >
             <input
@@ -108,9 +130,9 @@ const CriarLogin = () => {
               id="password"
               type={visiblePass ? "text" : "password"}
               placeholder="Senha"
-              onChange={password.onChange}
-              onBlur={password.onBlur}
-              value={password.value}
+              onChange={inputPassword.onChange}
+              onBlur={inputPassword.onBlur}
+              value={inputPassword.value}
             />
             {visiblePass ? (
               <BsEye
@@ -125,11 +147,11 @@ const CriarLogin = () => {
             )}
           </div>
           <span className={styles.err}>
-            {password.error && <p>{password.error}</p>}
+            {inputPassword.error && <p>{inputPassword.error}</p>}
           </span>
           <div
             className={`${styles.blocos_input} ${
-              (passwordConfirm.error && styles.errInput) ||
+              (inputPasswordConfirm.error && styles.errInput) ||
               (err && styles.errInput)
             }`}
           >
@@ -138,9 +160,9 @@ const CriarLogin = () => {
               id="passwordConfirm"
               type={visiblePassConfirm ? "text" : "password"}
               placeholder="Confirmar Senha"
-              onChange={passwordConfirm.onChange}
-              onBlur={passwordConfirm.onBlur}
-              value={passwordConfirm.value}
+              onChange={inputPasswordConfirm.onChange}
+              onBlur={inputPasswordConfirm.onBlur}
+              value={inputPasswordConfirm.value}
             />
             {visiblePassConfirm ? (
               <BsEye
@@ -155,10 +177,10 @@ const CriarLogin = () => {
             )}
           </div>
           <span className={styles.err}>
-            {passwordConfirm.error && <p>{passwordConfirm.error}</p>}
+            {inputPasswordConfirm.error && <p>{inputPasswordConfirm.error}</p>}
             {err}
           </span>
-          <button onClick={handleClick} className={styles.botao}>
+          <button onClick={criarConta} className={styles.botao}>
             CRIAR CONTA
           </button>
           <p className={styles.possuiConta}>

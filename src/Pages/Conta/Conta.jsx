@@ -6,6 +6,8 @@ import { MdModeEditOutline } from "react-icons/md";
 import UserContext from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 
+import { auth } from "../../db/firebaseauth";
+
 const Conta = () => {
   const { username, setUsername, userEmail, avatar, setAvatar, clear } =
     useContext(UserContext);

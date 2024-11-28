@@ -12,7 +12,7 @@
 }
 
 .img {
-  background: url(../../img/imgLogin.jpg) no-repeat bottom/cover;
+  background: url(../../assets/imgLogin.jpg) no-repeat bottom/cover;
   width: 400px;
 }
 
@@ -99,12 +99,15 @@
 
 .possuiConta {
   color: var(--bg-color);
+  padding-top: 10px;
+  margin: auto;
 }
 
 .cliqueAqui {
   color: var(--bg-color);
   text-decoration: none;
   font-weight: bold;
+  padding-left: 10px;
 }
 
 .coment {

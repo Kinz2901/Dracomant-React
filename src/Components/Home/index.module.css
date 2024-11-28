@@ -5,7 +5,7 @@ main {
 
 .fundoImg {
   width: 100%;
-  background: url(../../img/fundo-notebook.png) no-repeat right/cover;
+  background: url(../../assets/fundo-notebook.png) no-repeat right/cover;
   display: flex;
   align-items: center;
   height: calc(100vh - 250px);
