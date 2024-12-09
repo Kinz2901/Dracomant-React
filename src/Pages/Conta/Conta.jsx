@@ -6,8 +6,6 @@ import { MdModeEditOutline } from "react-icons/md";
 import UserContext from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 
-import { auth } from "../../db/firebaseauth";
-
 const Conta = () => {
   const { username, setUsername, userEmail, avatar, setAvatar, clear } =
     useContext(UserContext);
@@ -34,8 +32,8 @@ const Conta = () => {
   }
 
   function removerAv() {
-    inputRef.current.value = null
-    setAvatarTemp(null)
+    inputRef.current.value = null;
+    setAvatarTemp(null);
   }
 
   function cancel() {
@@ -72,7 +70,10 @@ const Conta = () => {
                 {avatarTemp ? <p>Alterar avatar</p> : <p>Adicionar avatar</p>}
               </label>
               {avatarTemp ? (
-                <button onClick={removerAv} className={`${styles.button} ${styles.btnFoto} ${styles.btRemoveAv}`}>
+                <button
+                  onClick={removerAv}
+                  className={`${styles.button} ${styles.btnFoto} ${styles.btRemoveAv}`}
+                >
                   <p>Remover avatar</p>
                 </button>
               ) : null}

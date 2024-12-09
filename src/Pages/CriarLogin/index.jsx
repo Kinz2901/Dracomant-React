@@ -6,12 +6,7 @@ import useVisiblePass from "../../hooks/useVisiblePass";
 import useForm from "../../hooks/useForm";
 import { useContext } from "react";
 import UserContext from "../../UserContext";
-
-import { auth } from "../../db/firebaseauth";
-
-import {
-  createUserWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import useRegister from "../../hooks/useRegister";
 
 const CriarLogin = () => {
   const { setUsername, setLogin, setUserEmail } = useContext(UserContext);
@@ -19,6 +14,7 @@ const CriarLogin = () => {
   const inputEmail = useForm("email");
   const inputPassword = useForm("password");
   const inputPasswordConfirm = useForm();
+  const { register, loading, errorRegister } = useRegister();
 
   const navigate = useNavigate();
 
@@ -30,7 +26,7 @@ const CriarLogin = () => {
     error,
   } = useVisiblePass();
 
-  function criarConta() {
+  const criarConta = async () => {
     // FAZER VERIFIÇÃO E ADICIONAR NO BANCODE DADOS
     if (
       !inputName.error &&
@@ -42,26 +38,29 @@ const CriarLogin = () => {
       inputPassword.value != "" &&
       inputPasswordConfirm.value != ""
     ) {
-      console.log(error);
-      setUsername(name.value);
-      setUserEmail(email.value);
-      setLogin(true);
-      navigate("/");
 
       // Initialize Firebase
-      
 
       const name = inputName.value;
       const email = inputEmail.value;
       const password = inputPassword.value;
 
-      // const signIn = async () => {
-      //   try {
-      //     await createUserWithEmailAndPassword(auth, email, password)
-      //   } catch (err) {
-      //     console.log(err);
-      //   }
-      // }
+      try {
+        const user = await register(email, password);
+        console.log("Usuário registrado:", user);
+        alert("Usuário registrado com sucesso!");
+      } catch (err) {
+        console.error("Erro ao registrar:", err.message);
+        alert(err.message);
+      }
+
+      // console.log(error);
+      // setUsername(name.value);
+      // setUserEmail(email.value);
+      // setLogin(true);
+      // navigate("/");
+    } else {
+      console.log("caiu aqui")
     }
   }
 
@@ -181,8 +180,9 @@ const CriarLogin = () => {
             {err}
           </span>
           <button onClick={criarConta} className={styles.botao}>
-            CRIAR CONTA
+            {loading ? "Cadastrando..." : "Registrar"}
           </button>
+          {errorRegister && <p style={{ color: "red" }}>{errorRegister}</p>}
           <p className={styles.possuiConta}>
             Já possui uma conta?
             <Link to="/login" className={styles.cliqueAqui}>
