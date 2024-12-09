@@ -41,11 +41,10 @@ const CriarLogin = () => {
 
       // Initialize Firebase
 
-      const name = inputName.value;
-      const email = inputEmail.value;
-      const password = inputPassword.value;
-
       try {
+        const name = inputName.value;
+        const email = inputEmail.value;
+        const password = inputPassword.value;
         const user = await register(email, password);
         console.log("Usuário registrado:", user);
         alert("Usuário registrado com sucesso!");
