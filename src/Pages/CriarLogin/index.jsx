@@ -27,20 +27,19 @@ const CriarLogin = () => {
   } = useVisiblePass();
 
   const criarConta = async () => {
+
     // FAZER VERIFIÇÃO E ADICIONAR NO BANCODE DADOS
     if (
       !inputName.error &&
       !inputEmail.error &&
       !inputPassword.error &&
       !inputPasswordConfirm.error &&
-      inputName.value != "" &&
-      inputEmail.value != "" &&
-      inputPassword.value != "" &&
-      inputPasswordConfirm.value != ""
+      inputName.value &&
+      inputEmail.value &&
+      inputPassword.value &&
+      inputPasswordConfirm.value
     ) {
-
-      // Initialize Firebase
-
+      // Cadastro Firebase
       try {
         const name = inputName.value;
         const email = inputEmail.value;
@@ -48,20 +47,25 @@ const CriarLogin = () => {
         const user = await register(email, password);
         console.log("Usuário registrado:", user);
         alert("Usuário registrado com sucesso!");
+        if (!loading) {
+          setLogin(true);
+          navigate("/");
+        }
       } catch (err) {
         console.error("Erro ao registrar:", err.message);
         alert(err.message);
       }
-
-      // console.log(error);
-      // setUsername(name.value);
-      // setUserEmail(email.value);
-      // setLogin(true);
-      // navigate("/");
     } else {
-      console.log("caiu aqui")
+      inputName.onBlur()
+      inputEmail.onBlur()
+      inputPassword.onBlur()
+      inputPasswordConfirm.onBlur()
     }
-  }
+
+    // console.log(error);
+    // setUsername(name.value);
+    // setUserEmail(email.value);
+  };
 
   // Tenho que concertar essa gambiarra ↴
 
