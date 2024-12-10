@@ -5,7 +5,7 @@
 
 .content {
   height: calc(100vh - 200px);
-  background-image: url("../../img/fundo-telefones.jpg");
+  background-image: url("../../assets/fundo-telefones.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

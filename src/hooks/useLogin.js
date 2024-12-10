@@ -1,22 +1,25 @@
 import { useState } from 'react' 
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import app from "../db/firebaseConfig";
 
 export default function useLogin() {
-    const [visiblePass, setVisiblePass] = useState(false);
-
-    const [ name, setName ] = useState()
-    const [ email, setEmail ] = useState("");
-    const [ password, setPassword ] = useState("");
-    const [ picture, setPicture ] = useState()
-    const [ logger, setLogger ] = useState(false)
-
-    const passwordValidationLogin = (ev) => {
-        setPassword(ev)
-
-    }
-
-    const emailValidationLogin = (ev) => {
-        setEmail(ev)
-    }
+    const auth = getAuth(app);
+    const [loading, setLoading] = useState(false);
+    const [errorLogin, setErrorLogin] = useState(null);
+  
+    const login = async (email, password) => {
+      setLoading(true);
+      setErrorLogin(null);
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        setLoading(false);
+        return userCredential.user;
+      } catch (err) {
+        setLoading(false);
+        setErrorLogin(err.message);
+        throw err;
+      }
+    };
  
-    return { visiblePass, setVisiblePass, name, setName, email, setEmail, emailValidationLogin, password, passwordValidationLogin, picture, setPicture , logger, setLogger }
+    return { login, loading, errorLogin}
 }

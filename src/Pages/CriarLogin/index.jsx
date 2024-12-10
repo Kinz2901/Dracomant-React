@@ -112,7 +112,7 @@ const CriarLogin = () => {
               className={styles.email}
               id="email"
               type="text"
-              placeholder="Endereço de e-mail"
+              placeholder="E-mail"
               onChange={inputEmail.onChange}
               onBlur={inputEmail.onBlur}
               value={inputEmail.value}
