@@ -44,9 +44,16 @@ const CriarLogin = () => {
         const name = inputName.value;
         const email = inputEmail.value;
         const password = inputPassword.value;
-        const user = await register(email, password);
+        const user = await register(name, email, password);
+
+        console.log(user)
+
+        setUsername(name);
+        setUserEmail(email);
+
         console.log("Usuário registrado:", user);
         alert("Usuário registrado com sucesso!");
+        
         if (!loading) {
           setLogin(true);
           navigate("/");

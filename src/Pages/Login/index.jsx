@@ -20,9 +20,18 @@ const Login = () => {
     setVisiblePass,
   } = useVisiblePass();
 
-  const handleLogin = async () => {
+  const logar = async () => {
     try {
       const user = await login(email, password);
+
+      // Pega o nome e e-mail do usuário logado
+      const userName = user.displayName;  // Pega o nome do usuário
+      const userEmail = user.email;       // Pega o e-mail do usuário
+
+      // Armazena o nome e e-mail no contexto
+      setUsername(userName);
+      setUserEmail(userEmail);
+
       console.log("Usuário logado:", user);
       alert("Login realizado com sucesso!");
       if (!loading) {
@@ -76,7 +85,7 @@ const Login = () => {
             )}
           </div>
           <span className={styles.err}></span>
-          <button onClick={handleLogin} disabled={loading} className={styles.botao}>
+          <button onClick={logar} disabled={loading} className={styles.botao}>
             {loading ? "Entrando..." : "Entrar"}
           </button>
           {error && <p style={{ color: "red" }}>{error}</p>}

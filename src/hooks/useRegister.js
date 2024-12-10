@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import app from "../db/firebaseConfig";
 
 const useRegister = () => {
@@ -7,13 +7,16 @@ const useRegister = () => {
   const [loading, setLoading] = useState(false);
   const [errorRegister, setErrorRegister] = useState(null);
 
-  const register = async (email, password) => {
+  const register = async (name, email, password) => {
     setLoading(true);
     setErrorRegister(null);
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
+      await updateProfile(user, {
+        displayName: name,
+      });
       setLoading(false);
       return user;
     } catch (err) {
