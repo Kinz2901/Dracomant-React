@@ -82,12 +82,14 @@ main {
 }
 
 
-
-
-
 .divTemplates {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 50px;
   padding: 40px 80px;
+}
+
+@media ( max-width: 1730px) {
+  
 }

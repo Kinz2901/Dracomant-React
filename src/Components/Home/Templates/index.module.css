@@ -1,6 +1,7 @@
 .template {
-  display: flex;
+  flex-basis: 800px;
   flex-direction: column;
+  flex-grow: 1;
   border-radius: 8px;
   border: solid 2px #d3d3d3;
 }
@@ -22,4 +23,12 @@
 .description {
   margin: 0px 40px 40px 40px;
   color: #d3d3d3;
+}
+
+@media ( max-width: 1817px) {
+  .template {
+    flex-grow: 0;
+    flex-basis: 1000px;
+    min-width: 800px;
+  }
 }
